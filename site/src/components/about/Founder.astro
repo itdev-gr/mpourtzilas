@@ -1,0 +1,138 @@
+---
+import { founder } from "../../content/about/data";
+---
+
+<section class="founder section">
+  <div class="founder__grid">
+    <figure class="founder__portrait" aria-hidden="true" data-reveal>
+      <span class="founder__monogram">ΠΜ</span>
+      <span class="founder__corner founder__corner--tl"></span>
+      <span class="founder__corner founder__corner--br"></span>
+      <figcaption>
+        <span>{founder.name}</span>
+        <span class="line"></span>
+        <span>Founder</span>
+      </figcaption>
+    </figure>
+
+    <div class="founder__text">
+      <span class="eyebrow" data-reveal>
+        {founder.eyebrow} <span class="eyebrow-line" data-reveal-line></span>
+      </span>
+      <h2 class="section-title" data-split-title>
+        <span class="line">{founder.name.split(" ")[0]}</span>
+        <span class="line">{founder.name.split(" ").slice(1).join(" ")}</span>
+      </h2>
+      <p class="founder__bio body-copy" data-reveal>{founder.bio}</p>
+
+      <ul class="founder__successors" data-reveal-stagger>
+        {founder.successors.map((s) => (
+          <li>
+            <span class="founder__successor-name">{s.name}</span>
+            <span class="founder__successor-role">{s.role}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .founder__grid {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+  .founder__text { min-width: 0; }
+
+  .founder__portrait {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(177,151,119,0.16), transparent 60%),
+      var(--ink);
+    color: var(--canvas);
+    overflow: hidden;
+  }
+  .founder__monogram {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(4rem, 9vw, 7rem);
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.85);
+    line-height: 1;
+  }
+  .founder__corner {
+    position: absolute;
+    width: 3rem; height: 3rem;
+    border-color: var(--bronze);
+    border-style: solid;
+  }
+  .founder__corner--tl { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+  .founder__corner--br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+  .founder__portrait figcaption {
+    position: absolute;
+    left: 1.25rem; bottom: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--canvas);
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.55);
+    padding: 0.55rem 0.85rem;
+    backdrop-filter: blur(2px);
+  }
+  .founder__portrait figcaption .line {
+    width: 1.5rem; height: 1px; background: var(--bronze);
+  }
+
+  .founder__bio {
+    max-width: 34rem;
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .founder__successors {
+    list-style: none;
+    padding: 0;
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+  }
+  .founder__successors li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .founder__successor-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .founder__successor-role {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+
+  @media (max-width: 900px) {
+    .founder__grid { grid-template-columns: 1fr; }
+    .founder__portrait { aspect-ratio: 4 / 3; }
+    .founder__successors { grid-template-columns: 1fr; }
+  }
+</style>
