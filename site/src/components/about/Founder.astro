@@ -20,15 +20,14 @@ import { founder } from "../../content/about/data";
         {founder.eyebrow} <span class="eyebrow-line" data-reveal-line></span>
       </span>
       <h2 class="section-title" data-split-title>
-        <span class="line">{founder.name.split(" ")[0]}</span>
-        <span class="line">{founder.name.split(" ").slice(1).join(" ")}</span>
+        {founder.title.map((line) => <span class="line">{line}</span>)}
       </h2>
       <p class="founder__bio body-copy" data-reveal>{founder.bio}</p>
 
       <ul class="founder__successors" data-reveal-stagger>
         {founder.successors.map((s) => (
           <li>
-            <span class="founder__successor-name">{s.name}</span>
+            <strong class="founder__successor-name">{s.name}</strong>
             <span class="founder__successor-role">{s.role}</span>
           </li>
         ))}
@@ -118,6 +117,7 @@ import { founder } from "../../content/about/data";
   }
   .founder__successor-name {
     font-family: var(--font-display);
+    font-weight: 400;
     font-size: 1rem;
     color: var(--ink);
     letter-spacing: 0.02em;
