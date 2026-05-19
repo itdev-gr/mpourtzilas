@@ -1,14 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Sidebar from "../components/Sidebar.astro";
-import About from "../components/About.astro";
+import CompanyIntro from "../components/about/CompanyIntro.astro";
+import Founder from "../components/about/Founder.astro";
+import CompletedProjects from "../components/about/CompletedProjects.astro";
 ---
 
-<Layout title="ΕΤΑΙΡΕΙΑ — 59ST ConstrAction">
+<Layout
+  title="ΕΤΑΙΡΕΙΑ — 59ST ConstrAction"
+  description="Η εταιρεία Μπουρτζίλα — ανέγερση νέων οικοδομών από το 1995 στις περιοχές Άνω Πατησίων, Λαμπρινής, Γαλατσίου και Κυπριάδου."
+>
   <div class="shell">
     <Sidebar />
     <main class="stage">
-      <About />
+      <CompanyIntro />
+      <Founder />
+      <CompletedProjects />
     </main>
   </div>
 
