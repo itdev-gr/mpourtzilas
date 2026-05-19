@@ -7,9 +7,9 @@ import ProjectCard from "./ProjectCard.astro";
   <div class="completed__inner">
     <header class="completed__head">
       <span class="eyebrow" data-reveal>
-        {completedHeading.eyebrow} <span class="eyebrow-line" data-reveal-line></span>
+        {completedHeading.eyebrow} <span class="eyebrow-line"></span>
       </span>
-      <p class="completed__kicker" data-reveal>{completedHeading.kicker}</p>
+      <p class="eyebrow completed__kicker" data-reveal>{completedHeading.kicker}</p>
       <h2 class="section-title" data-split-title>
         {completedHeading.title.map((line) => <span class="line">{line}</span>)}
       </h2>
@@ -29,14 +29,7 @@ import ProjectCard from "./ProjectCard.astro";
   .completed__head {
     margin-bottom: clamp(2rem, 5vw, 3.5rem);
   }
-  .completed__kicker {
-    margin: 0.75rem 0 1.25rem;
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
-    color: var(--bronze);
-  }
+  .completed__kicker { margin: 0.75rem 0 1.25rem; }
   .completed__list {
     display: block;
   }
