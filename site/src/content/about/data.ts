@@ -32,7 +32,7 @@ export type Project = {
   body: string;
 };
 
-export const completedProjects: readonly Project[] = [
+export const completedProjects = [
   {
     slug: "halepa-1",
     title: "Χαλεπά 1",
@@ -68,7 +68,7 @@ export const completedProjects: readonly Project[] = [
     area: "Κυπριάδου · Αθήνα",
     body: "Διασχίζοντας την οδό Μαρκορά από την πλατεία Χαλεπά προς την οδό Παπαδιαμάντη βρίσκουμε ένα αρχιτεκτονικά λιτό πεντάωροφο κτίριο με δύο τμήματα τα οποία χωρίζονται από το ενδιάμεσο αίθριο και καταλήγουν στον πίσω ακάλυπτο. Ένα πολύ ήσυχο",
   },
-];
+] as const satisfies readonly Project[];
 
 export const completedHeading = {
   eyebrow: "ΤΑ ΕΡΓΑ ΜΑΣ",
