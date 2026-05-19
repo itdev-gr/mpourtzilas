@@ -1,0 +1,109 @@
+---
+import type { Project } from "../../content/about/data";
+
+interface Props {
+  project: Project;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const num = String(index + 1).padStart(2, "0");
+---
+
+<article class="project-card" data-reveal style={`--idx:${index}`}>
+  <div class="project-card__media" aria-hidden="true">
+    <span class="project-card__num">{num}</span>
+    <span class="project-card__corner project-card__corner--tl"></span>
+    <span class="project-card__corner project-card__corner--br"></span>
+  </div>
+
+  <div class="project-card__body">
+    <header class="project-card__head">
+      <h3 class="project-card__title">{project.title}</h3>
+      <p class="project-card__meta">
+        <span>{project.period}</span>
+        <span class="dot">·</span>
+        <span>{project.area}</span>
+      </p>
+    </header>
+    <p class="project-card__copy">{project.body}</p>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+    padding: clamp(1.75rem, 4vw, 2.5rem) 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .project-card:first-of-type { border-top: 0; }
+
+  .project-card__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(177,151,119,0.08) 0 14px,
+        rgba(177,151,119,0.04) 14px 28px
+      ),
+      var(--whisper, #f7f4ef);
+    display: grid;
+    place-items: center;
+    color: var(--bronze);
+    overflow: hidden;
+  }
+  .project-card__num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 5rem);
+    letter-spacing: 0.05em;
+    color: rgba(177,151,119,0.55);
+    line-height: 1;
+  }
+  .project-card__corner {
+    position: absolute;
+    width: 2.25rem; height: 2.25rem;
+    border-color: var(--bronze);
+    border-style: solid;
+  }
+  .project-card__corner--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  .project-card__corner--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+  .project-card__body { min-width: 0; }
+  .project-card__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+  .project-card__meta {
+    margin: 0.5rem 0 0;
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--bronze);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .project-card__meta .dot { opacity: 0.55; }
+  .project-card__copy {
+    margin: 1.1rem 0 0;
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: rgba(39,39,39,0.82);
+    max-width: 38rem;
+  }
+
+  @media (max-width: 760px) {
+    .project-card { grid-template-columns: 1fr; gap: 1.25rem; }
+    .project-card__media { aspect-ratio: 16 / 10; }
+  }
+</style>
