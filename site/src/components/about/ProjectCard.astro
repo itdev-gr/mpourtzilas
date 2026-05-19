@@ -10,7 +10,7 @@ const { project, index } = Astro.props;
 const num = String(index + 1).padStart(2, "0");
 ---
 
-<article class="project-card" data-reveal style={`--idx:${index}`}>
+<article class:list={["project-card", { "project-card--first": index === 0 }]} data-reveal>
   <div class="project-card__media" aria-hidden="true">
     <span class="project-card__num">{num}</span>
     <span class="project-card__corner project-card__corner--tl"></span>
@@ -39,7 +39,7 @@ const num = String(index + 1).padStart(2, "0");
     padding: clamp(1.75rem, 4vw, 2.5rem) 0;
     border-top: 1px solid rgba(0,0,0,0.08);
   }
-  .project-card:first-of-type { border-top: 0; }
+  .project-card--first { border-top: 0; }
 
   .project-card__media {
     position: relative;
