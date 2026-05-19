@@ -1,0 +1,43 @@
+---
+import { completedHeading, completedProjects } from "../../content/about/data";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section class="completed section">
+  <div class="completed__inner">
+    <header class="completed__head">
+      <span class="eyebrow" data-reveal>
+        {completedHeading.eyebrow} <span class="eyebrow-line" data-reveal-line></span>
+      </span>
+      <p class="completed__kicker" data-reveal>{completedHeading.kicker}</p>
+      <h2 class="section-title" data-split-title>
+        {completedHeading.title.map((line) => <span class="line">{line}</span>)}
+      </h2>
+    </header>
+
+    <div class="completed__list" data-reveal-stagger>
+      {completedProjects.map((p, i) => <ProjectCard project={p} index={i} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .completed__inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+  .completed__head {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+  .completed__kicker {
+    margin: 0.75rem 0 1.25rem;
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+  .completed__list {
+    display: block;
+  }
+</style>
