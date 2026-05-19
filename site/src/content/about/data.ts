@@ -26,6 +26,7 @@ export const founder = {
 } as const;
 
 export type Project = {
+  /** Reserved for future /projects/[slug] routing. */
   slug: string;
   title: string;
   period: string;
