@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Sidebar from "../components/Sidebar.astro";
+import About from "../components/About.astro";
+---
+
+<Layout title="ΕΤΑΙΡΕΙΑ — 59ST ConstrAction">
+  <div class="shell">
+    <Sidebar />
+    <main class="stage">
+      <About />
+    </main>
+  </div>
+
+  <script>
+    import "../scripts/main.ts";
+  </script>
+</Layout>

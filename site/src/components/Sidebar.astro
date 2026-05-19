@@ -1,16 +1,17 @@
 ---
 const items = [
-  { label: "ΑΡΧΙΚΗ",       href: "#hero" },
-  { label: "ΕΤΑΙΡΕΙΑ",     href: "#about" },
-  { label: "ΤΑ ΕΡΓΑ ΜΑΣ",  href: "#projects" },
-  { label: "ΥΠΗΡΕΣΙΕΣ",    href: "#services" },
-  { label: "BLOG",         href: "#news" },
-  { label: "ΕΠΙΚΟΙΝΩΝΙΑ",  href: "#contact" },
+  { label: "ΑΡΧΙΚΗ",       href: "/" },
+  { label: "ΕΤΑΙΡΕΙΑ",     href: "/about" },
+  { label: "ΤΑ ΕΡΓΑ ΜΑΣ",  href: "/projects" },
+  { label: "ΥΠΗΡΕΣΙΕΣ",    href: "/services" },
+  { label: "ΕΠΙΚΟΙΝΩΝΙΑ",  href: "/contact" },
 ];
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <header class="topbar" data-rail>
-  <a href="#hero" class="brand" aria-label="59ST ConstrAction — home">
+  <a href="/" class="brand" aria-label="59ST ConstrAction — home">
     <svg
       class="brand-mark"
       viewBox="0 0 220 110"
@@ -35,9 +36,19 @@ const items = [
 
   <nav class="topbar-nav" aria-label="Primary">
     <ul>
-      {items.map((it, i) => (
-        <li style={`--i:${i}`}><a href={it.href} data-nav-link>{it.label}</a></li>
-      ))}
+      {items.map((it, i) => {
+        const isActive = it.href === path;
+        return (
+          <li style={`--i:${i}`}>
+            <a
+              href={it.href}
+              data-nav-link
+              class={isActive ? "is-active" : undefined}
+              aria-current={isActive ? "page" : undefined}
+            >{it.label}</a>
+          </li>
+        );
+      })}
     </ul>
   </nav>
 
@@ -49,7 +60,7 @@ const items = [
         <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor"/>
       </svg>
     </a>
-    <a class="topbar-cta" href="#contact">
+    <a class="topbar-cta" href="/contact">
       <span>ENQUIRE</span>
       <span class="arrow">→</span>
     </a>
@@ -156,6 +167,10 @@ const items = [
     letter-spacing: 0.25rem;
   }
   .topbar-nav a:hover::after { width: 100%; }
+  .topbar-nav a.is-active {
+    color: var(--bronze);
+  }
+  .topbar-nav a.is-active::after { width: 100%; }
 
   /* ---- End cluster ---- */
   .topbar-end {
