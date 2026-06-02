@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -7,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = "MPOURTZILAS — Innovate Construction & Renovation in Greece",
-  description = "Crafting spaces with precision, innovation, and style. A Greek technical company specializing in construction, renovation, and design.",
+  title = "MPOURTZILAS — Ανέγερση Νέων Οικοδομών στην Αθήνα",
+  description = "Η MPOURTZILAS εξειδικεύεται στην ανέγερση νέων οικοδομών στην Αθήνα από το 1995 — από τη μελέτη έως την παράδοση με το κλειδί στο χέρι.",
 } = Astro.props;
 ---
 
@@ -37,5 +38,6 @@ const {
   </head>
   <body>
     <slot />
+    <Footer />
   </body>
 </html>

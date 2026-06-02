@@ -10,7 +10,7 @@ const items = [
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
-<header class="topbar" data-rail>
+<header class:list={["topbar", { "is-over-hero": path === "/" }]} data-rail>
   <a href="/" class="brand" aria-label="MPOURTZILAS — home">
     <svg
       class="brand-mark"
@@ -52,8 +52,13 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
   </nav>
 
   <div class="topbar-end">
+    <div class="lang-toggle" role="group" aria-label="Γλώσσα / Language" data-lang-toggle>
+      <button class="lang-opt is-active" type="button" data-lang="el" aria-pressed="true">EL</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button class="lang-opt" type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <a class="topbar-cta" href="/contact">
-      <span>ENQUIRE</span>
+      <span>ΕΠΙΚΟΙΝΩΝΙΑ</span>
       <span class="arrow">→</span>
     </a>
     <button class="topbar-burger" aria-label="Open menu" data-burger>
@@ -213,6 +218,53 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
     height: 1px;
     background: var(--ink);
   }
+
+  /* ---- Language toggle ---- */
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12rem;
+  }
+  .lang-opt {
+    color: var(--slate);
+    padding: 0.2rem 0.15rem;
+    line-height: 1;
+    transition: color 0.35s var(--ease-arch);
+  }
+  .lang-opt.is-active { color: var(--ink); }
+  .lang-opt:hover { color: var(--bronze); }
+  .lang-sep { color: rgba(0,0,0,0.22); }
+
+  /* ---- Over-hero (home): transparent until scrolled ---- */
+  .topbar.is-over-hero {
+    position: fixed;
+    left: 0;
+    right: 0;
+    transition: background-color 0.45s var(--ease-arch),
+                border-color 0.45s var(--ease-arch),
+                backdrop-filter 0.45s var(--ease-arch);
+  }
+  .topbar.is-over-hero:not(.is-solid) {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0));
+    border-bottom-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .topbar.is-over-hero:not(.is-solid) .topbar-nav a { color: rgba(255,255,255,0.92); }
+  .topbar.is-over-hero:not(.is-solid) .topbar-nav a.is-active { color: var(--bronze-soft); }
+  .topbar.is-over-hero:not(.is-solid) .topbar-cta {
+    color: #fff;
+    border-color: rgba(255,255,255,0.5);
+  }
+  .topbar.is-over-hero:not(.is-solid) .topbar-cta:hover { background: #fff; color: var(--ink); }
+  .topbar.is-over-hero:not(.is-solid) .lang-opt { color: rgba(255,255,255,0.65); }
+  .topbar.is-over-hero:not(.is-solid) .lang-opt.is-active { color: #fff; }
+  .topbar.is-over-hero:not(.is-solid) .lang-sep { color: rgba(255,255,255,0.4); }
+  .topbar.is-over-hero:not(.is-solid) .topbar-burger { border-color: rgba(255,255,255,0.4); }
+  .topbar.is-over-hero:not(.is-solid) .topbar-burger span { background: #fff; }
 
   /* ---- Responsive ---- */
   @media (max-width: 1100px) {

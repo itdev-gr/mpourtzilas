@@ -147,6 +147,13 @@ function animateRail() {
     stagger: 0.06,
     delay: 0.7,
   });
+
+  // Home: nav is transparent over the hero, turns solid once scrolled down.
+  if (rail.classList.contains("is-over-hero")) {
+    const solidify = () => rail.classList.toggle("is-solid", window.scrollY > 80);
+    solidify();
+    window.addEventListener("scroll", solidify, { passive: true });
+  }
 }
 
 /* --------------------------------------------------------------

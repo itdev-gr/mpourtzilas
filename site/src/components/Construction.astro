@@ -1,0 +1,308 @@
+---
+const stats = [
+  { value: "30+", label: "έτη\nεμπειρίας" },
+  { value: "1995", label: "έτος\nίδρυσης" },
+  { value: "Κλειδί\nστο χέρι", label: "παράδοση" },
+];
+
+const steps = [
+  {
+    n: "01",
+    t: "Μελέτη & Σχεδιασμός",
+    d: "Αρχιτεκτονική και στατική μελέτη, τρισδιάστατη φωτορεαλιστική απεικόνιση και πλήρης αδειοδότηση του έργου.",
+  },
+  {
+    n: "02",
+    t: "Θεμελίωση & Φέρων Οργανισμός",
+    d: "Εκσκαφές και κατασκευή του φέροντος οργανισμού από οπλισμένο σκυρόδεμα, σύμφωνα με τον ισχύοντα αντισεισμικό κανονισμό.",
+  },
+  {
+    n: "03",
+    t: "Τοιχοποιία & Μονώσεις",
+    d: "Δόμηση, θερμομόνωση του κελύφους και υγρομονώσεις, με στόχο τη μέγιστη ενεργειακή απόδοση (ΚΕΝΑΚ).",
+  },
+  {
+    n: "04",
+    t: "Ηλεκτρομηχανολογικά",
+    d: "Δίκτυα ύδρευσης, αποχέτευσης, ηλεκτρολογικών, θέρμανσης και ψύξης, με πρόβλεψη για σύγχρονες υποδομές.",
+  },
+  {
+    n: "05",
+    t: "Φινιρίσματα",
+    d: "Επιλογή ποιοτικών υλικών — δάπεδα, κουφώματα, χρωματισμοί και είδη υγιεινής — προσαρμοσμένων στις ανάγκες σας.",
+  },
+  {
+    n: "06",
+    t: "Παράδοση κλειδί στο χέρι",
+    d: "Τελικός έλεγχος ποιότητας και παράδοση της κατοικίας έτοιμης προς χρήση.",
+  },
+];
+
+const features = [
+  {
+    t: "Σύγχρονες μέθοδοι δόμησης",
+    d: "Εφαρμόζουμε σύγχρονες τεχνικές και υλικά για ανθεκτικά κτίρια χαμηλής συντήρησης.",
+  },
+  {
+    t: "Ενεργειακή απόδοση",
+    d: "Σχεδιασμός σύμφωνα με τον ΚΕΝΑΚ για χαμηλή κατανάλωση και άνεση όλο τον χρόνο.",
+  },
+  {
+    t: "Έμπειρα συνεργεία",
+    d: "Σταθερές συνεργασίες με συνεργεία υψηλής τεχνικής κατάρτισης και επώνυμους προμηθευτές.",
+  },
+  {
+    t: "Σύγχρονα πρότυπα",
+    d: "Πλήρης τήρηση των ισχυόντων προτύπων, κανονισμών και προδιαγραφών ασφαλείας.",
+  },
+];
+---
+
+<!-- Intro -->
+<section class="con-intro section">
+  <div class="con-wrap">
+    <header class="con-head">
+      <span class="eyebrow" data-reveal>Η ΥΠΗΡΕΣΙΑ ΜΑΣ <span class="eyebrow-line"></span></span>
+      <p class="eyebrow con-kicker" data-reveal>ΚΑΤΑΣΚΕΥΕΣ</p>
+      <h1 class="section-title con-title" data-split-title>
+        <span class="line">ΑΝΕΓΕΡΣΗ ΝΕΩΝ</span>
+        <span class="line">ΟΙΚΟΔΟΜΩΝ</span>
+      </h1>
+    </header>
+
+    <div class="con-intro__body">
+      <p class="con-lede body-copy" data-reveal>
+        Από το 1995 εξειδικευόμαστε αποκλειστικά στην ανέγερση νέων οικοδομών στην
+        Αθήνα. Αναλαμβάνουμε κάθε έργο ολοκληρωμένα — από τη μελέτη και την
+        αδειοδότηση έως την παράδοση με το κλειδί στο χέρι — εφαρμόζοντας σύγχρονες
+        μεθόδους δόμησης και τηρώντας τους πιο πρόσφατους κανονισμούς.
+      </p>
+      <p class="body-copy" data-reveal>
+        Κάθε κτίριο σχεδιάζεται ώστε να προσφέρει φωτεινούς, λειτουργικούς και
+        ενεργειακά αποδοτικούς χώρους, με διακριτή αρχιτεκτονική παρουσία και
+        διαχρονική ποιότητα κατασκευής.
+      </p>
+    </div>
+
+    <div class="con-stats" data-reveal-stagger>
+      {stats.map((s) => (
+        <div class="con-stat">
+          <span class="con-stat__v">{s.value}</span>
+          <span class="con-stat__l">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="con-process section section--inverse">
+  <div class="con-wrap">
+    <header class="con-head">
+      <span class="eyebrow" data-reveal>Η ΔΙΑΔΙΚΑΣΙΑ <span class="eyebrow-line"></span></span>
+      <h2 class="section-title" data-split-title>
+        <span class="line">ΑΠΟ ΤΗ ΜΕΛΕΤΗ</span>
+        <span class="line">ΣΤΗΝ ΠΑΡΑΔΟΣΗ</span>
+      </h2>
+    </header>
+
+    <ol class="con-steps" data-reveal-stagger>
+      {steps.map((s) => (
+        <li class="con-step">
+          <span class="con-step__n">{s.n}</span>
+          <div class="con-step__body">
+            <h3 class="con-step__t">{s.t}</h3>
+            <p class="con-step__d">{s.d}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- Quality -->
+<section class="con-quality section section--whisper">
+  <div class="con-wrap">
+    <header class="con-head">
+      <span class="eyebrow" data-reveal>ΓΙΑΤΙ ΕΜΑΣ <span class="eyebrow-line"></span></span>
+      <h2 class="section-title" data-split-title>
+        <span class="line">ΠΟΙΟΤΗΤΑ &amp;</span>
+        <span class="line">ΤΕΧΝΟΛΟΓΙΑ</span>
+      </h2>
+    </header>
+
+    <div class="con-features" data-reveal-stagger>
+      {features.map((f) => (
+        <div class="con-feature">
+          <span class="con-feature__bar" aria-hidden="true"></span>
+          <h3 class="con-feature__t">{f.t}</h3>
+          <p class="con-feature__d">{f.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="con-cta section section--inverse">
+  <div class="con-wrap con-cta__inner">
+    <h2 class="con-cta__title" data-reveal>Σχεδιάζετε μια νέα οικοδομή;</h2>
+    <p class="con-cta__text" data-reveal>
+      Επικοινωνήστε μαζί μας για το έργο σας — απαντάμε εντός μιας εργάσιμης ημέρας.
+    </p>
+    <div class="con-cta__actions" data-reveal>
+      <a class="btn-outline" href="/contact">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+      <a class="btn-outline" href="/projects">ΔΕΙΤΕ ΤΑ ΕΡΓΑ ΜΑΣ</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .con-wrap { max-width: var(--content-max); margin: 0 auto; }
+  .con-head { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+  .con-kicker { margin: 0.75rem 0 1.25rem; color: var(--bronze); }
+
+  /* Intro */
+  .con-intro__body {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: start;
+  }
+  .con-lede {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .con-intro__body .body-copy { line-height: 1.85; }
+
+  .con-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(2rem, 6vw, 5rem);
+    margin-top: clamp(2.5rem, 5vw, 3.75rem);
+    padding-top: clamp(2rem, 4vw, 2.75rem);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .con-stat { display: flex; flex-direction: column; gap: 0.4rem; }
+  .con-stat__v {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 1;
+    color: var(--ink);
+    white-space: pre-line;
+  }
+  .con-stat__l {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--bronze);
+    white-space: pre-line;
+    line-height: 1.4;
+  }
+
+  /* Process steps */
+  .con-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.75rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+  }
+  .con-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .con-step__n {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    line-height: 1;
+    color: var(--bronze);
+  }
+  .con-step__t {
+    margin: 0 0 0.55rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    color: var(--canvas);
+    text-transform: uppercase;
+  }
+  .con-step__d {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  /* Quality features */
+  .con-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 4vw, 2.75rem);
+  }
+  .con-feature {
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .con-feature__bar {
+    display: block;
+    width: 2rem;
+    height: 2px;
+    background: var(--bronze);
+    margin-bottom: 1.1rem;
+  }
+  .con-feature__t {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .con-feature__d {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--slate);
+  }
+
+  /* CTA */
+  .con-cta__inner { max-width: 46rem; text-align: center; margin-inline: auto; }
+  .con-cta__title {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--canvas);
+  }
+  .con-cta__text {
+    margin: 0 auto clamp(1.75rem, 3vw, 2.5rem);
+    max-width: 34rem;
+    font-family: var(--font-body);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .con-cta__actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  @media (max-width: 860px) {
+    .con-intro__body { grid-template-columns: 1fr; }
+    .con-steps { grid-template-columns: 1fr; }
+    .con-features { grid-template-columns: 1fr; }
+  }
+</style>

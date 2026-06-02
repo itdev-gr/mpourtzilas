@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Sidebar from "../components/Sidebar.astro";
 import CompletedProjects from "../components/about/CompletedProjects.astro";
 import UnderConstructionProjects from "../components/about/UnderConstructionProjects.astro";
+import Lightbox from "../components/Lightbox.astro";
 ---
 
 <Layout title="ΤΑ ΕΡΓΑ ΜΑΣ — MPOURTZILAS">
@@ -13,6 +14,8 @@ import UnderConstructionProjects from "../components/about/UnderConstructionProj
       <CompletedProjects />
     </main>
   </div>
+
+  <Lightbox />
 
   <script>
     import "../scripts/main.ts";

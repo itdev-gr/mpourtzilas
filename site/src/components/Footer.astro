@@ -1,0 +1,183 @@
+---
+const nav = [
+  { label: "Αρχική", href: "/" },
+  { label: "Εταιρεία", href: "/about" },
+  { label: "Τα Έργα μας", href: "/projects" },
+  { label: "Υπηρεσίες", href: "/services" },
+  { label: "Επικοινωνία", href: "/contact" },
+];
+const services = ["Ανέγερση νέων οικοδομών", "Σύγχρονη δόμηση", "Παράδοση κλειδί στο χέρι"];
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="/" class="site-footer__word" aria-label="MPOURTZILAS — Αρχική">
+        <em>MPOUR</em><strong>TZIL</strong><em>AS</em>
+      </a>
+      <p class="site-footer__tag">ΤΕΧΝΙΚΗ <span>·</span> ΕΤΑΙΡΕΙΑ</p>
+      <p class="site-footer__desc">
+        Ανέγερση νέων οικοδομών υψηλής ποιότητας στην Αθήνα από το 1995 — με
+        έμφαση στη σύγχρονη δόμηση, τις νέες τεχνολογίες και την ανθεκτικότητα.
+      </p>
+    </div>
+
+    <nav class="site-footer__col" aria-label="Πλοήγηση">
+      <h3 class="site-footer__h">Πλοήγηση</h3>
+      <ul>
+        {nav.map((n) => (
+          <li><a href={n.href}>{n.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="site-footer__col">
+      <h3 class="site-footer__h">Υπηρεσίες</h3>
+      <ul>
+        {services.map((s) => (
+          <li><a href="/services">{s}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="site-footer__col site-footer__col--contact">
+      <h3 class="site-footer__h">Επικοινωνία</h3>
+      <ul>
+        <li>
+          <span class="k">Διεύθυνση</span>
+          <span>Μαραθωνοδρόμου 59 · 151 24 Μαρούσι · Αθήνα</span>
+        </li>
+        <li>
+          <span class="k">Τηλέφωνο</span>
+          <a href="tel:+302100000059">+30 210 000 0059</a>
+        </li>
+        <li>
+          <span class="k">Email</span>
+          <a href="mailto:studio@mpourtzilas.gr">studio@mpourtzilas.gr</a>
+        </li>
+        <li>
+          <span class="k">Ώρες</span>
+          <span>Δευτέρα – Παρασκευή · 09:00 — 18:00</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="site-footer__bar">
+    <span>© 2026 · MPOURTZILAS O.E.</span>
+    <span class="site-footer__sep" aria-hidden="true"></span>
+    <span class="site-footer__credit">
+      Powered by <a href="https://www.itdev.gr" target="_blank" rel="noopener">itdev</a>
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #1e1e1e;
+    color: rgba(255, 255, 255, 0.7);
+    padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 5rem) clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .site-footer__inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr 1.5fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  /* Brand */
+  .site-footer__word {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    letter-spacing: -0.4px;
+    line-height: 1;
+    color: var(--bronze);
+  }
+  .site-footer__word em { font-style: normal; font-weight: 300; }
+  .site-footer__word strong { font-weight: 500; }
+  .site-footer__tag {
+    margin: 0.7rem 0 0;
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+  .site-footer__tag span { opacity: 0.55; }
+  .site-footer__desc {
+    margin: 1.35rem 0 0;
+    max-width: 30rem;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.58);
+  }
+
+  /* Columns */
+  .site-footer__h {
+    margin: 0 0 1.35rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+  .site-footer__col ul { list-style: none; margin: 0; padding: 0; }
+  .site-footer__col li { margin-bottom: 0.75rem; }
+  .site-footer__col a,
+  .site-footer__col li > span {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.72);
+    transition: color 0.35s var(--ease-arch);
+  }
+  .site-footer__col a:hover { color: var(--bronze-soft); }
+
+  .site-footer__col--contact li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 1.05rem;
+  }
+  .site-footer__col--contact .k {
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  /* Bottom bar */
+  .site-footer__bar {
+    max-width: var(--content-max);
+    margin: clamp(2.75rem, 5vw, 4rem) auto 0;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .site-footer__sep { flex: 1; height: 1px; background: rgba(255, 255, 255, 0.12); }
+  .site-footer__credit a { color: var(--bronze-soft); }
+  .site-footer__credit a:hover { color: #fff; }
+
+  @media (max-width: 860px) {
+    .site-footer__inner { grid-template-columns: 1fr 1fr; gap: 2.25rem; }
+    .site-footer__brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .site-footer__inner { grid-template-columns: 1fr; }
+    .site-footer__bar { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+    .site-footer__sep { display: none; }
+  }
+</style>

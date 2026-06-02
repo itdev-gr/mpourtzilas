@@ -28,8 +28,6 @@ import Brackets from "./Brackets.astro";
     <h1 class="hero-title" data-split-title>
       <span class="line">ΚΑΙΝΟΤΟΜΗ</span>
       <span class="line">ΚΑΤΑΣΚΕΥΗ</span>
-      <span class="line">&amp; ΑΝΑΚΑΙΝΙΣΗ</span>
-      <span class="line"><em>στην</em> ΕΛΛΑΔΑ</span>
     </h1>
 
     <p class="hero-lede" data-reveal>
@@ -38,14 +36,7 @@ import Brackets from "./Brackets.astro";
     </p>
 
     <div class="hero-actions" data-reveal>
-      <button class="btn-outline">ENG · ΕΛ</button>
-      <a class="hero-scroll" href="#about" aria-label="Μετάβαση στην επόμενη ενότητα">
-        <span>ΚΥΛΗΣΤΕ</span>
-        <svg viewBox="0 0 24 36" width="14" height="22" aria-hidden="true">
-          <rect x="0.5" y="0.5" width="23" height="35" rx="11.5" fill="none" stroke="currentColor" stroke-width="1"/>
-          <circle class="dot" cx="12" cy="10" r="1.4" fill="currentColor"/>
-        </svg>
-      </a>
+      <a class="btn-outline" href="/projects">ΤΑ ΕΡΓΑ ΜΑΣ</a>
     </div>
   </div>
 
@@ -58,13 +49,14 @@ import Brackets from "./Brackets.astro";
 <style>
   .hero {
     position: relative;
-    min-height: 100vh;
+    height: 100svh;
+    min-height: 34rem;
     overflow: hidden;
     background: var(--black);
     color: var(--canvas);
     display: flex;
-    align-items: center;
-    padding: clamp(3.5rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem);
+    align-items: flex-end;
+    padding: clamp(3.5rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem) clamp(5rem, 11vw, 9rem);
   }
 
   .hero-image {
@@ -92,7 +84,7 @@ import Brackets from "./Brackets.astro";
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 38rem;
+    max-width: 48rem;
   }
 
   .hero-eyebrow {
@@ -100,7 +92,7 @@ import Brackets from "./Brackets.astro";
     align-items: center;
     gap: 0.875rem;
     font-family: var(--font-display);
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     letter-spacing: var(--tracking-eyebrow);
     color: var(--bronze);
     text-transform: uppercase;
@@ -135,7 +127,7 @@ import Brackets from "./Brackets.astro";
   }
 
   .hero-lede {
-    max-width: 30rem;
+    max-width: 48rem;
     font-size: 1.05rem;
     line-height: 1.85;
     color: rgba(255,255,255,0.82);
@@ -180,7 +172,7 @@ import Brackets from "./Brackets.astro";
     align-items: center;
     gap: 0.85rem;
     font-family: var(--font-display);
-    font-size: 0.5625rem;
+    font-size: 0.675rem;
     letter-spacing: var(--tracking-eyebrow);
     color: rgba(255,255,255,0.62);
     text-transform: uppercase;

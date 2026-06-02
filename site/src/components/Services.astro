@@ -2,27 +2,27 @@
 const services = [
   {
     n: "01",
-    title: "ΑΝΑΚΑΙΝΙΣΕΙΣ",
-    en: "Renovations",
+    title: "ΑΝΕΓΕΡΣΗ",
+    en: "Νέες οικοδομές",
     body:
-      "Δομικές και κατοικιακές αναβαθμίσεις με έμφαση στη λειτουργικότητα και την ενεργειακή απόδοση — από εξατομικευμένο σχεδιασμό έως ολοκληρωμένη παράδοση.",
-    items: ["Structural updates", "Energy retrofits", "Project management"],
+      "Ανέγερση νέων πολυκατοικιών και κατοικιών — από τη μελέτη και την αδειοδότηση έως τον φέροντα οργανισμό και την τοιχοποιία.",
+    items: ["Μελέτη & άδεια", "Φέρων οργανισμός", "Τοιχοποιία & μονώσεις"],
   },
   {
     n: "02",
-    title: "ΚΑΤΑΣΚΕΥΕΣ",
-    en: "Construction",
+    title: "ΔΟΜΗΣΗ",
+    en: "Σύγχρονες μέθοδοι",
     body:
-      "Ολοκληρωμένα έργα κατοικιών και επαγγελματικών χώρων από τη μελέτη έως την παράδοση κλειδί στο χέρι, με έμφαση στην ποιότητα και την ανθεκτικότητα.",
-    items: ["Residential builds", "Commercial fit-outs", "Turnkey delivery"],
+      "Σύγχρονες μέθοδοι δόμησης και ενεργειακή απόδοση κατά ΚΕΝΑΚ, με επώνυμους προμηθευτές και έμπειρα συνεργεία υψηλής κατάρτισης.",
+    items: ["Ενεργειακή απόδοση", "Ποιοτικά υλικά", "Ηλεκτρομηχανολογικά"],
   },
   {
     n: "03",
-    title: "ΣΧΕΔΙΑΣΜΟΣ",
-    en: "Design & Decoration",
+    title: "ΠΑΡΑΔΟΣΗ",
+    en: "Κλειδί στο χέρι",
     body:
-      "Δημιουργία χώρων με αισθητική και πρακτική λειτουργικότητα. Συνεργαζόμαστε στενά με κάθε πελάτη για να εκφράσουμε το όραμά του στον χώρο.",
-    items: ["Interior architecture", "Material curation", "Lighting design"],
+      "Ολοκληρωμένα φινιρίσματα, τελικός έλεγχος ποιότητας και παράδοση της κατοικίας έτοιμης προς χρήση.",
+    items: ["Φινιρίσματα", "Έλεγχος ποιότητας", "Κλειδί στο χέρι"],
   },
 ];
 ---
@@ -30,13 +30,14 @@ const services = [
 <section id="services" class="services section section--inverse">
   <div class="services-head">
     <span class="eyebrow" data-reveal>
-      Capabilities <span class="eyebrow-line"></span>
+      Η ΥΠΗΡΕΣΙΑ ΜΑΣ <span class="eyebrow-line"></span>
     </span>
     <h2 class="section-title" data-split-title>
-      <span class="line">ΥΠΗΡΕΣΙΕΣ</span>
+      <span class="line">ΚΑΤΑΣΚΕΥΕΣ</span>
     </h2>
     <p class="services-lede body-copy" data-reveal>
-      Τρεις πυλώνες — μία προσέγγιση: μελετημένη, διακριτική, διαρκής.
+      Εξειδικευόμαστε αποκλειστικά στην ανέγερση νέων οικοδομών — από τη μελέτη
+      έως την παράδοση με το κλειδί στο χέρι.
     </p>
   </div>
 
@@ -61,6 +62,10 @@ const services = [
       </li>
     ))}
   </ol>
+
+  <div class="services-cta">
+    <a class="btn-outline" href="/services">ΟΛΗ Η ΥΠΗΡΕΣΙΑ</a>
+  </div>
 </section>
 
 <style>
@@ -159,6 +164,12 @@ const services = [
     transition: width 0.7s var(--ease-arch);
   }
   .svc:hover .svc-rule { width: 100%; }
+
+  .services-cta {
+    max-width: var(--content-max);
+    margin: clamp(2.5rem, 5vw, 3.75rem) auto 0;
+    text-align: center;
+  }
 
   @media (max-width: 720px) {
     .svc { grid-template-columns: 1fr; gap: 0.75rem; }
