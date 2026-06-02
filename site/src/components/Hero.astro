@@ -19,12 +19,12 @@ import Brackets from "./Brackets.astro";
 
   <Brackets inset="2.5rem" size="6rem" stroke="1px" />
 
-  <div class="hero-content">
-    <span class="hero-eyebrow" data-reveal>
-      <span class="line"></span>
-      <span>Δημιουργούμε χώρους · Από το 1995</span>
-    </span>
+  <span class="hero-eyebrow" data-reveal>
+    <span class="line"></span>
+    <span>Δημιουργούμε χώρους · Από το 1995</span>
+  </span>
 
+  <div class="hero-content">
     <h1 class="hero-title" data-split-title>
       <span class="line">ΚΑΙΝΟΤΟΜΗ</span>
       <span class="line">ΚΑΤΑΣΚΕΥΗ</span>
@@ -42,7 +42,7 @@ import Brackets from "./Brackets.astro";
 
   <!-- Bottom-right location -->
   <div class="hero-meta">
-    <span>Μαραθωνοδρόμου 59, Μαρούσι</span>
+    <span>Μητσάκη 32, Κυπριάδου</span>
   </div>
 </section>
 
@@ -56,7 +56,9 @@ import Brackets from "./Brackets.astro";
     color: var(--canvas);
     display: flex;
     align-items: flex-end;
-    padding: clamp(3.5rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem) clamp(5rem, 11vw, 9rem);
+    /* bottom padding matches the horizontal padding so the button sits the
+       same distance from the bottom as from the left edge */
+    padding: clamp(3.5rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem) clamp(2rem, 6vw, 6rem);
   }
 
   .hero-image {
@@ -88,6 +90,10 @@ import Brackets from "./Brackets.astro";
   }
 
   .hero-eyebrow {
+    position: absolute;
+    top: clamp(4.5rem, 8vw, 5.5rem);
+    left: clamp(2rem, 6vw, 6rem);
+    z-index: 2;
     display: inline-flex;
     align-items: center;
     gap: 0.875rem;
@@ -96,7 +102,6 @@ import Brackets from "./Brackets.astro";
     letter-spacing: var(--tracking-eyebrow);
     color: var(--bronze);
     text-transform: uppercase;
-    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   }
   .hero-eyebrow .line {
     width: 3rem;
@@ -128,8 +133,8 @@ import Brackets from "./Brackets.astro";
 
   .hero-lede {
     max-width: 48rem;
-    font-size: 1.05rem;
-    line-height: 1.85;
+    font-size: 1.2rem;
+    line-height: 1.8;
     color: rgba(255,255,255,0.82);
     margin: 0 0 clamp(2rem, 4vw, 3rem) 0;
   }

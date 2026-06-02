@@ -9,7 +9,7 @@ const projects = underConstructionProjects
   .map((p) => ({
     name: p.title,
     kind: `Νέα Οικοδομή · ${p.area}`,
-    year: "ΥΠΟ ΚΑΤΑΣΚΕΥΗ",
+    year: p.period,
     img: p.images![0].src,
     href: "/projects",
   }));

@@ -117,6 +117,39 @@ function animateHero() {
       delay: 2.4,
     });
   }
+
+  // Hero title animates out ~30s into the video and reappears each time the
+  // video loops back to the start — repeating for every loop.
+  const heroVideo = heroImg instanceof HTMLVideoElement ? heroImg : null;
+  if (heroVideo && titleChars.length) {
+    const HIDE_AT = 30;
+    let titleHidden = false;
+    const hideTitle = () => {
+      titleHidden = true;
+      gsap.to(titleChars, {
+        yPercent: reduceMotion ? 0 : -110,
+        autoAlpha: 0,
+        duration: 0.8,
+        ease: ARCH,
+        stagger: 0.03,
+      });
+    };
+    const showTitle = () => {
+      titleHidden = false;
+      gsap.fromTo(
+        titleChars,
+        { yPercent: reduceMotion ? 0 : 110, autoAlpha: 0 },
+        { yPercent: 0, autoAlpha: 1, duration: 1, ease: ARCH, stagger: 0.03 },
+      );
+    };
+    heroVideo.addEventListener("timeupdate", () => {
+      if (heroVideo.currentTime >= HIDE_AT) {
+        if (!titleHidden) hideTitle();
+      } else if (titleHidden) {
+        showTitle();
+      }
+    });
+  }
 }
 
 /* --------------------------------------------------------------
