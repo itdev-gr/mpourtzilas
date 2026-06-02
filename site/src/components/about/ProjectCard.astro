@@ -8,14 +8,27 @@ interface Props {
 
 const { project, index } = Astro.props;
 const num = String(index + 1).padStart(2, "0");
+const hasImages = (project.images?.length ?? 0) > 0;
 ---
 
 <article class:list={["project-card", { "project-card--first": index === 0 }]} data-reveal>
-  <div class="project-card__media" aria-hidden="true">
-    <span class="project-card__num">{num}</span>
-    <span class="project-card__corner project-card__corner--tl"></span>
-    <span class="project-card__corner project-card__corner--br"></span>
-  </div>
+  {hasImages ? (
+    <div class:list={["project-card__media", "project-card__media--gallery", { "project-card__media--single": project.images!.length === 1 }]}>
+      {project.images!.map((img) => (
+        <figure class="project-card__shot">
+          <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+          <span class="project-card__corner project-card__corner--tl" aria-hidden="true"></span>
+          <span class="project-card__corner project-card__corner--br" aria-hidden="true"></span>
+        </figure>
+      ))}
+    </div>
+  ) : (
+    <div class="project-card__media" aria-hidden="true">
+      <span class="project-card__num">{num}</span>
+      <span class="project-card__corner project-card__corner--tl"></span>
+      <span class="project-card__corner project-card__corner--br"></span>
+    </div>
+  )}
 
   <div class="project-card__body">
     <header class="project-card__head">
@@ -73,6 +86,34 @@ const num = String(index + 1).padStart(2, "0");
   .project-card__corner--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
   .project-card__corner--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 
+  .project-card__media--gallery {
+    aspect-ratio: auto;
+    background: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0;
+  }
+  .project-card__media--gallery.project-card__media--single {
+    grid-template-columns: 1fr;
+  }
+  .project-card__shot {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--whisper, #fafafa);
+  }
+  .project-card__shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 1.4s var(--ease-arch);
+  }
+  .project-card__shot:hover img { transform: scale(1.0); }
+
   .project-card__body { min-width: 0; }
   .project-card__title {
     font-family: var(--font-display);
@@ -105,5 +146,7 @@ const num = String(index + 1).padStart(2, "0");
   @media (max-width: 760px) {
     .project-card { grid-template-columns: 1fr; gap: 1.25rem; }
     .project-card__media { aspect-ratio: 16 / 10; }
+    .project-card__media--gallery { aspect-ratio: auto; grid-template-columns: 1fr; }
+    .project-card__shot { aspect-ratio: 16 / 10; }
   }
 </style>

@@ -1,42 +1,18 @@
 ---
-const projects = [
-  {
-    name: "BUNA TETU",
-    kind: "Cocktail Bar · Athens",
-    year: "2024",
-    img: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    name: "ΚΤΗΡΙΟ ΟΤΕ",
-    kind: "Commercial Building",
-    year: "2023",
-    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    name: "MEDITERRANEAN HOTEL",
-    kind: "Hospitality · Crete",
-    year: "2023",
-    img: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    name: "MAROUSI RESIDENCE",
-    kind: "Private Residence",
-    year: "2022",
-    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    name: "AGORA LOFT",
-    kind: "Renovation · Athens",
-    year: "2022",
-    img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    name: "OLEA HOUSE",
-    kind: "Residential · Kifisia",
-    year: "2021",
-    img: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1400&q=80",
-  },
-];
+import { underConstructionProjects } from "../content/about/data";
+
+// Single source of truth: every under-construction project, shown in the
+// home portfolio grid. Detail routing (/projects/[slug]) is not built yet,
+// so tiles link to the full works page.
+const projects = underConstructionProjects
+  .filter((p) => (p.images?.length ?? 0) > 0)
+  .map((p) => ({
+    name: p.title,
+    kind: `Νέα Οικοδομή · ${p.area}`,
+    year: "ΥΠΟ ΚΑΤΑΣΚΕΥΗ",
+    img: p.images![0].src,
+    href: "/projects",
+  }));
 ---
 
 <section id="projects" class="projects section">
@@ -48,14 +24,14 @@ const projects = [
       <span class="line">ΤΑ ΕΡΓΑ ΜΑΣ</span>
     </h2>
     <p class="projects-lede body-copy" data-reveal>
-      Έξι έργα που μεταφράζουν το όραμα σε χώρο — από εμπορικά κτήρια και
-      ξενοδοχεία μέχρι ανακαινίσεις κατοικιών.
+      Επιλεγμένα έργα που μεταφράζουν το όραμα σε χώρο — από νέες οικοδομές
+      και εμπορικά κτήρια μέχρι ανακαινίσεις κατοικιών.
     </p>
   </header>
 
   <div class="projects-grid">
     {projects.map((p, i) => (
-      <a class="tile" href="#" data-tile style={`--idx:${i}`}>
+      <a class="tile" href={p.href} data-tile style={`--idx:${i}`}>
         <figure class="tile-figure">
           <img src={p.img} alt={p.name} loading="lazy" decoding="async" />
           <span class="tile-veil"></span>
@@ -77,7 +53,7 @@ const projects = [
   </div>
 
   <div class="projects-cta" data-reveal>
-    <a class="btn-outline is-dark" href="#">ΟΛΑ ΤΑ ΕΡΓΑ</a>
+    <a class="btn-outline is-dark" href="/projects">ΟΛΑ ΤΑ ΕΡΓΑ</a>
   </div>
 </section>
 

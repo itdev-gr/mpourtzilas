@@ -1,0 +1,33 @@
+---
+import { underConstructionHeading, underConstructionProjects } from "../../content/about/data";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section class="under-construction section section--whisper">
+  <div class="under-construction__inner">
+    <header class="under-construction__head">
+      <span class="eyebrow" data-reveal>
+        {underConstructionHeading.eyebrow} <span class="eyebrow-line"></span>
+      </span>
+      <p class="eyebrow under-construction__kicker" data-reveal>{underConstructionHeading.kicker}</p>
+      <h2 class="section-title" data-split-title>
+        {underConstructionHeading.title.map((line) => <span class="line">{line}</span>)}
+      </h2>
+    </header>
+
+    <div class="under-construction__list" data-reveal-stagger>
+      {underConstructionProjects.map((p, i) => <ProjectCard project={p} index={i} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .under-construction__inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+  .under-construction__head {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+  .under-construction__kicker { margin: 0.75rem 0 1.25rem; }
+</style>

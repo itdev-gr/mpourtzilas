@@ -1,19 +1,19 @@
 ---
 import Brackets from "./Brackets.astro";
-
-// Photographic hero — moody industrial loft.
-const heroImg =
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1900&q=80";
 ---
 
 <section id="hero" class="hero" data-hero>
   <div class="hero-image" data-hero-image>
-    <img
-      src={heroImg}
-      alt="Industrial loft interior with exposed brick, concrete ceiling, dark steel and warm lamplight"
-      loading="eager"
-      decoding="async"
-    />
+    <video
+      src="/video/hero.mp4"
+      poster="/video/hero-poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-label="Μπουρτζίλας Οικοδομές — παρουσίαση έργων"
+    ></video>
     <div class="hero-veil"></div>
   </div>
 
@@ -22,25 +22,25 @@ const heroImg =
   <div class="hero-content">
     <span class="hero-eyebrow" data-reveal>
       <span class="line"></span>
-      <span>Crafting Spaces · Since 2014</span>
+      <span>Δημιουργούμε χώρους · Από το 1995</span>
     </span>
 
     <h1 class="hero-title" data-split-title>
-      <span class="line">INNOVATE</span>
-      <span class="line">CONSTRUCTION</span>
-      <span class="line">&amp; RENOVATION</span>
-      <span class="line"><em>in</em> GREECE</span>
+      <span class="line">ΚΑΙΝΟΤΟΜΗ</span>
+      <span class="line">ΚΑΤΑΣΚΕΥΗ</span>
+      <span class="line">&amp; ΑΝΑΚΑΙΝΙΣΗ</span>
+      <span class="line"><em>στην</em> ΕΛΛΑΔΑ</span>
     </h1>
 
     <p class="hero-lede" data-reveal>
-      59 ST — Crafting spaces with precision, innovation, and style.<br />
-      We specialize in transforming your visions into reality.
+      MPOURTZILAS — Δημιουργούμε χώρους με ακρίβεια, καινοτομία και αισθητική.<br />
+      Εξειδικευόμαστε στο να μετατρέπουμε το όραμά σας σε πραγματικότητα.
     </p>
 
     <div class="hero-actions" data-reveal>
       <button class="btn-outline">ENG · ΕΛ</button>
-      <a class="hero-scroll" href="#about" aria-label="Scroll to next section">
-        <span>SCROLL</span>
+      <a class="hero-scroll" href="#about" aria-label="Μετάβαση στην επόμενη ενότητα">
+        <span>ΚΥΛΗΣΤΕ</span>
         <svg viewBox="0 0 24 36" width="14" height="22" aria-hidden="true">
           <rect x="0.5" y="0.5" width="23" height="35" rx="11.5" fill="none" stroke="currentColor" stroke-width="1"/>
           <circle class="dot" cx="12" cy="10" r="1.4" fill="currentColor"/>
@@ -49,9 +49,9 @@ const heroImg =
     </div>
   </div>
 
-  <!-- Bottom-right photo credit / location -->
+  <!-- Bottom-right location -->
   <div class="hero-meta">
-    <span>059°</span><span class="sep"></span><span>Marathonodromou 59, Marousi</span>
+    <span>Μαραθωνοδρόμου 59, Μαρούσι</span>
   </div>
 </section>
 
@@ -73,7 +73,8 @@ const heroImg =
     overflow: hidden;
     z-index: 0;
   }
-  .hero-image img {
+  .hero-image img,
+  .hero-image video {
     width: 100%;
     height: 100%;
     object-fit: cover;

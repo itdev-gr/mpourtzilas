@@ -1,5 +1,5 @@
 // ==============================================================
-//  59ST CONSTRACTION — Motion choreography
+//  MPOURTZILAS — Motion choreography
 //  Refined, architectural, never showy.
 // ==============================================================
 
@@ -58,7 +58,7 @@ function animateHero() {
   const hero = document.querySelector<HTMLElement>("[data-hero]");
   if (!hero) return;
 
-  const heroImg = hero.querySelector<HTMLElement>("[data-hero-image] img");
+  const heroImg = hero.querySelector<HTMLElement>("[data-hero-image] img, [data-hero-image] video");
   const titleEl = hero.querySelector<HTMLElement>("[data-split-title]");
   const titleChars = titleEl ? splitChars(titleEl) : [];
   const eyebrow = hero.querySelector<HTMLElement>(".hero-eyebrow");

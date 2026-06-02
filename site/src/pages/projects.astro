@@ -1,14 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Sidebar from "../components/Sidebar.astro";
-import Projects from "../components/Projects.astro";
+import CompletedProjects from "../components/about/CompletedProjects.astro";
+import UnderConstructionProjects from "../components/about/UnderConstructionProjects.astro";
 ---
 
-<Layout title="ΤΑ ΕΡΓΑ ΜΑΣ — 59ST ConstrAction">
+<Layout title="ΤΑ ΕΡΓΑ ΜΑΣ — MPOURTZILAS">
   <div class="shell">
     <Sidebar />
     <main class="stage">
-      <Projects />
+      <UnderConstructionProjects />
+      <CompletedProjects />
     </main>
   </div>
 
