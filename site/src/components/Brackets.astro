@@ -4,6 +4,7 @@
 
 interface Props {
   inset?: string;     // distance from edge of parent
+  insetTop?: string;  // distance of the top pair from the top edge (e.g. to clear a fixed nav)
   size?: string;      // length of each leg
   color?: string;
   stroke?: string;
@@ -11,13 +12,14 @@ interface Props {
 
 const {
   inset = "1.75rem",
+  insetTop = inset,
   size = "4.5rem",
   color = "var(--bronze)",
   stroke = "1px",
 } = Astro.props;
 ---
 
-<div class="brackets" style={`--inset:${inset};--size:${size};--c:${color};--w:${stroke};`} aria-hidden="true">
+<div class="brackets" style={`--inset:${inset};--inset-top:${insetTop};--size:${size};--c:${color};--w:${stroke};`} aria-hidden="true">
   <span class="b b--tl"></span>
   <span class="b b--tr"></span>
   <span class="b b--bl"></span>
@@ -54,8 +56,8 @@ const {
     width: var(--w);
     height: var(--size);
   }
-  .b--tl { top: var(--inset); left: var(--inset); }
-  .b--tr { top: var(--inset); right: var(--inset); transform: scaleX(-1); }
+  .b--tl { top: var(--inset-top, var(--inset)); left: var(--inset); }
+  .b--tr { top: var(--inset-top, var(--inset)); right: var(--inset); transform: scaleX(-1); }
   .b--bl { bottom: var(--inset); left: var(--inset); transform: scaleY(-1); }
   .b--br { bottom: var(--inset); right: var(--inset); transform: scale(-1); }
 </style>
