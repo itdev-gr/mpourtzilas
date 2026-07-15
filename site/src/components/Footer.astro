@@ -12,10 +12,15 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
 <footer class="site-footer">
   <div class="site-footer__inner">
     <div class="site-footer__brand">
-      <a href="/" class="site-footer__word" aria-label="MPOURTZILAS — Αρχική">
-        <em>MPOUR</em><strong>TZIL</strong><em>AS</em>
+      <a href="/" class="site-footer__logo" aria-label="ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ — Αρχική">
+        <img
+          src="/brand/logo-white.png"
+          alt="ΟΜΙΛΟΣ ΟΙΚΟΔΟΜΙΚΩΝ ΕΠΙΧΕΙΡΗΣΕΩΝ — ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ"
+          width="1120"
+          height="265"
+          loading="lazy"
+        />
       </a>
-      <p class="site-footer__tag">ΤΕΧΝΙΚΗ <span>·</span> ΕΤΑΙΡΕΙΑ</p>
       <p class="site-footer__desc">
         Ανέγερση νέων οικοδομών υψηλής ποιότητας στην Αθήνα από το 1995 — με
         έμφαση στη σύγχρονη δόμηση, τις νέες τεχνολογίες και την ανθεκτικότητα.
@@ -90,25 +95,12 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
   }
 
   /* Brand */
-  .site-footer__word {
-    display: inline-block;
-    font-family: var(--font-display);
-    font-size: 1.9rem;
-    letter-spacing: -0.4px;
-    line-height: 1;
-    color: var(--bronze);
+  .site-footer__logo { display: inline-block; }
+  .site-footer__logo img {
+    display: block;
+    width: min(320px, 100%);
+    height: auto;
   }
-  .site-footer__word em { font-style: normal; font-weight: 300; }
-  .site-footer__word strong { font-weight: 500; }
-  .site-footer__tag {
-    margin: 0.7rem 0 0;
-    font-family: var(--font-display);
-    font-size: 0.5rem;
-    letter-spacing: 0.4rem;
-    text-transform: uppercase;
-    color: var(--bronze);
-  }
-  .site-footer__tag span { opacity: 0.55; }
   .site-footer__desc {
     margin: 1.35rem 0 0;
     max-width: 30rem;

@@ -56,6 +56,10 @@ const {
     width: var(--w);
     height: var(--size);
   }
+  /* Phones: the corners crowd the viewport and cross the hero eyebrow */
+  @media (max-width: 700px) {
+    .brackets { display: none; }
+  }
   .b--tl { top: var(--inset-top, var(--inset)); left: var(--inset); }
   .b--tr { top: var(--inset-top, var(--inset)); right: var(--inset); transform: scaleX(-1); }
   .b--bl { bottom: var(--inset); left: var(--inset); transform: scaleY(-1); }

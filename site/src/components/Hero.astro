@@ -197,4 +197,15 @@ import Brackets from "./Brackets.astro";
     /* the fixed 15px tracking pushes ΚΑΙΝΟΤΟΜΗ past the viewport and wraps it mid-word */
     .hero-title { letter-spacing: clamp(0.3rem, 1.8vw, 0.9375rem); }
   }
+
+  @media (max-width: 700px) {
+    /* the 9px tracking wraps the eyebrow to 3 lines across the corner brackets */
+    .hero-eyebrow {
+      right: clamp(2rem, 6vw, 6rem);
+      flex-wrap: wrap;
+      row-gap: 0.4rem;
+      letter-spacing: 0.2rem;
+      line-height: 1.6;
+    }
+  }
 </style>

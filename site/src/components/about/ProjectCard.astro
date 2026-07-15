@@ -34,8 +34,12 @@ const hasImages = (project.images?.length ?? 0) > 0;
     <header class="project-card__head">
       <h3 class="project-card__title">{project.title}</h3>
       <p class="project-card__meta">
-        <span>{project.period}</span>
-        <span class="dot">·</span>
+        {project.period && project.period !== "—" && (
+          <>
+            <span>{project.period}</span>
+            <span class="dot">·</span>
+          </>
+        )}
         <span>{project.area}</span>
       </p>
     </header>
@@ -148,5 +152,7 @@ const hasImages = (project.images?.length ?? 0) > 0;
     .project-card__media { aspect-ratio: 16 / 10; }
     .project-card__media--gallery { aspect-ratio: auto; grid-template-columns: 1fr; }
     .project-card__shot { aspect-ratio: 16 / 10; }
+    /* the 9px tracking makes the meta spans wrap into ragged columns */
+    .project-card__meta { flex-wrap: wrap; letter-spacing: 0.15rem; row-gap: 0.3rem; }
   }
 </style>

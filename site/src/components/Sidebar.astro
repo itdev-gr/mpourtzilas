@@ -11,26 +11,22 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <header class:list={["topbar", { "is-over-hero": path === "/" }]} data-rail>
-  <a href="/" class="brand" aria-label="MPOURTZILAS — home">
-    <svg
-      class="brand-mark"
-      viewBox="0 0 220 110"
-      role="img"
+  <a href="/" class="brand" aria-label="ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ — Αρχική">
+    <img
+      class="brand-logo brand-logo--dark"
+      src="/brand/logo-dark.png"
+      alt="ΟΜΙΛΟΣ ΟΙΚΟΔΟΜΙΚΩΝ ΕΠΙΧΕΙΡΗΣΕΩΝ — ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ"
+      width="1120"
+      height="265"
+    />
+    <img
+      class="brand-logo brand-logo--white"
+      src="/brand/logo-white.png"
+      alt=""
       aria-hidden="true"
-    >
-      <g stroke="var(--bronze)" stroke-width="1.4" fill="none" stroke-linejoin="miter" stroke-linecap="square">
-        <path d="M115 10 L115 32 L130 32 L130 14 L150 14 L150 36 L165 36 L165 22 L182 22 L182 44 L160 44" />
-        <path d="M165 22 L165 44" />
-        <path d="M150 36 L150 44" />
-        <path d="M130 14 L130 32" />
-      </g>
-    </svg>
-    <span class="brand-block">
-      <span class="brand-word"><em>MPOUR</em><strong>TZIL</strong><em>AS</em></span>
-      <span class="brand-tag">
-        <span>ΤΕΧΝΙΚΗ</span><span class="dot">·</span><span>ΕΤΑΙΡΕΙΑ</span>
-      </span>
-    </span>
+      width="1120"
+      height="265"
+    />
   </a>
 
   <nav class="topbar-nav" aria-label="Primary">
@@ -85,45 +81,24 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 
   /* ---- Brand ---- */
   .brand {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
     text-decoration: none;
   }
-  .brand-mark {
-    width: 56px;
-    height: auto;
+  .brand-logo {
+    height: 48px;
+    width: auto;
     display: block;
-    margin-top: -2px;
+    transition: opacity 0.45s var(--ease-arch);
   }
-  .brand-block {
-    display: inline-flex;
-    flex-direction: column;
-    line-height: 1;
+  .brand-logo--white {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    opacity: 0;
   }
-  .brand-word {
-    display: block;
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 1.55rem;
-    letter-spacing: -0.4px;
-    color: var(--bronze);
-    line-height: 1;
-  }
-  .brand-word em { font-style: normal; font-weight: 300; }
-  .brand-word strong { font-weight: 500; color: var(--bronze); }
-  .brand-tag {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 0.32rem;
-    color: var(--bronze);
-    font-family: var(--font-display);
-    font-size: 0.5rem;
-    letter-spacing: 0.4rem;
-    text-transform: uppercase;
-  }
-  .brand-tag .dot { opacity: 0.55; }
 
   /* ---- Nav ---- */
   .topbar-nav {
@@ -217,7 +192,12 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
     width: 18px;
     height: 1px;
     background: var(--ink);
+    transition: transform 0.35s var(--ease-arch), opacity 0.25s var(--ease-arch);
   }
+  /* Open state: burger becomes an X */
+  .topbar.is-menu-open .topbar-burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .topbar.is-menu-open .topbar-burger span:nth-child(2) { opacity: 0; }
+  .topbar.is-menu-open .topbar-burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   /* ---- Language toggle ---- */
   .lang-toggle {
@@ -247,24 +227,26 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
                 border-color 0.45s var(--ease-arch),
                 backdrop-filter 0.45s var(--ease-arch);
   }
-  .topbar.is-over-hero:not(.is-solid) {
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0));
     border-bottom-color: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
-  .topbar.is-over-hero:not(.is-solid) .topbar-nav a { color: rgba(255,255,255,0.92); }
-  .topbar.is-over-hero:not(.is-solid) .topbar-nav a.is-active { color: var(--bronze-soft); }
-  .topbar.is-over-hero:not(.is-solid) .topbar-cta {
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .brand-logo--dark { opacity: 0; }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .brand-logo--white { opacity: 1; }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-nav a { color: rgba(255,255,255,0.92); }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-nav a.is-active { color: var(--bronze-soft); }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-cta {
     color: #fff;
     border-color: rgba(255,255,255,0.5);
   }
-  .topbar.is-over-hero:not(.is-solid) .topbar-cta:hover { background: #fff; color: var(--ink); }
-  .topbar.is-over-hero:not(.is-solid) .lang-opt { color: rgba(255,255,255,0.65); }
-  .topbar.is-over-hero:not(.is-solid) .lang-opt.is-active { color: #fff; }
-  .topbar.is-over-hero:not(.is-solid) .lang-sep { color: rgba(255,255,255,0.4); }
-  .topbar.is-over-hero:not(.is-solid) .topbar-burger { border-color: rgba(255,255,255,0.4); }
-  .topbar.is-over-hero:not(.is-solid) .topbar-burger span { background: #fff; }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-cta:hover { background: #fff; color: var(--ink); }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .lang-opt { color: rgba(255,255,255,0.65); }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .lang-opt.is-active { color: #fff; }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .lang-sep { color: rgba(255,255,255,0.4); }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-burger { border-color: rgba(255,255,255,0.4); }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-burger span { background: #fff; }
 
   /* ---- Responsive ---- */
   @media (max-width: 1100px) {
@@ -274,9 +256,12 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
   }
   @media (max-width: 860px) {
     .topbar { grid-template-columns: 1fr auto; padding: 0.75rem 1.25rem; }
-    .brand-mark { width: 44px; }
-    .brand-word { font-size: 1.25rem; }
+    .brand-logo { height: 38px; }
+    /* Single header row: brand left, lang+burger right; nav drops below */
+    .brand { grid-row: 1; grid-column: 1; }
+    .topbar-end { grid-row: 1; grid-column: 2; justify-self: end; }
     .topbar-nav {
+      grid-row: 2;
       grid-column: 1 / -1;
       justify-self: stretch;
       max-height: 0;
@@ -299,11 +284,17 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 <script>
   const burger = document.querySelector<HTMLButtonElement>("[data-burger]");
   const nav = document.querySelector<HTMLElement>(".topbar-nav");
+  const topbar = document.querySelector<HTMLElement>(".topbar");
   burger?.addEventListener("click", () => {
-    nav?.classList.toggle("is-open");
+    const open = nav?.classList.toggle("is-open") ?? false;
+    // Solid background while the menu is open (links are unreadable over the hero video)
+    topbar?.classList.toggle("is-menu-open", open);
   });
   // Auto-close on link click (mobile)
   nav?.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => nav?.classList.remove("is-open")),
+    a.addEventListener("click", () => {
+      nav?.classList.remove("is-open");
+      topbar?.classList.remove("is-menu-open");
+    }),
   );
 </script>

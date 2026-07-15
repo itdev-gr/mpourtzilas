@@ -130,4 +130,12 @@ import { companyIntro } from "../../content/about/data";
     .company__mark { aspect-ratio: 4 / 3; }
     .stat-row dt { font-size: 2rem; }
   }
+
+  /* Phones: three tracked columns can't fit — one stat per row, number + label inline */
+  @media (max-width: 600px) {
+    .stat-row { grid-template-columns: 1fr; gap: 1.1rem; }
+    .stat-row > div { display: flex; align-items: baseline; gap: 1.25rem; }
+    .stat-row dt { font-size: 1.75rem; min-width: 4.25rem; }
+    .stat-row dd { margin: 0; letter-spacing: 0.2rem; overflow-wrap: normal; }
+  }
 </style>

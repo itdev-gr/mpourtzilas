@@ -29,3 +29,6 @@ pnpm-debug.log*
 
 # dev screenshots / design references
 *.png
+
+# ...but brand assets must ship
+!site/public/brand/*.png
