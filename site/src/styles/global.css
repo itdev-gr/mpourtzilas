@@ -13,9 +13,10 @@
   --canvas: #ffffff;
   --black: #000000;
 
-  /* Typography */
-  --font-display: "Oswald", "Helvetica Neue", sans-serif;
-  --font-body: "Didact Gothic", "Helvetica Neue", sans-serif;
+  /* Typography — Helvetica (system stack; Arial is the Greek-capable,
+     metric-compatible fallback for Windows/Android) */
+  --font-display: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
 
   /* Tracking scale */
   --tracking-eyebrow: 0.5625rem;   /* 9px  */
