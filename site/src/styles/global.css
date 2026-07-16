@@ -5,8 +5,10 @@
 
 :root {
   /* Palette */
-  --bronze: #b19777;
-  --bronze-soft: #c9b497;
+  /* Brand accent — the red from the MPOURTZILAS logo (was gold #b19777).
+     Token names kept as --bronze/--bronze-soft since every component references them. */
+  --bronze: #c51422;        /* logo red — primary accent */
+  --bronze-soft: #e24c56;   /* lighter red — hover / active states */
   --ink: #272727;
   --slate: #777777;
   --whisper: #fafafa;
