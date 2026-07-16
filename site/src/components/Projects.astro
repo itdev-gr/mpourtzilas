@@ -17,15 +17,11 @@ const projects = underConstructionProjects
 
 <section id="projects" class="projects section">
   <header class="projects-head">
-    <span class="eyebrow" data-reveal>
-      Portfolio <span class="eyebrow-line"></span>
-    </span>
     <h2 class="section-title" data-split-title>
       <span class="line">ΤΑ ΕΡΓΑ ΜΑΣ</span>
     </h2>
     <p class="projects-lede body-copy" data-reveal>
-      Επιλεγμένα έργα ανέγερσης νέων οικοδομών στην Αθήνα — ολοκληρωμένα
-      και υπό κατασκευή.
+      Επιλεγμένα έργα ανέγερσης νέων οικοδομών στην Αθήνα, ολοκληρωμένα και υπό κατασκευή.
     </p>
   </header>
 
@@ -35,13 +31,12 @@ const projects = underConstructionProjects
         <figure class="tile-figure">
           <img src={p.img} alt={p.name} loading="lazy" decoding="async" />
           <span class="tile-veil"></span>
-          <span class="tile-num">{String(i + 1).padStart(2, "0")}</span>
         </figure>
         <div class="tile-meta">
           <span class="tile-eyebrow">{p.kind} · {p.year}</span>
           <h3 class="tile-name">{p.name}</h3>
           <span class="tile-cta">
-            <span>VIEW PROJECT</span>
+            <span>Δείτε το έργο</span>
             <svg viewBox="0 0 24 8" width="22" height="8" aria-hidden="true">
               <line x1="0" y1="4" x2="20" y2="4" stroke="currentColor" stroke-width="1"/>
               <polyline points="16,1 20,4 16,7" fill="none" stroke="currentColor" stroke-width="1"/>
@@ -59,11 +54,15 @@ const projects = underConstructionProjects
 
 <style>
   .projects-head {
+    width: 100%;
     max-width: var(--content-max);
     margin: 0 auto clamp(3rem, 6vw, 4.5rem);
   }
-  .projects-head .eyebrow { margin-bottom: 1.5rem; }
-  .projects-lede { max-width: 32rem; }
+  .projects-lede {
+    width: 100%;
+    max-width: none;
+    white-space: nowrap;
+  }
 
   .projects-grid {
     max-width: var(--content-max);
@@ -122,18 +121,6 @@ const projects = underConstructionProjects
     background: linear-gradient(180deg, rgba(39,39,39,0) 35%, rgba(39,39,39,0.78) 100%);
   }
 
-  .tile-num {
-    position: absolute;
-    top: 1.1rem; left: 1.25rem;
-    font-family: var(--font-display);
-    font-size: 0.5625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    color: var(--bronze);
-    background: rgba(0,0,0,0.45);
-    padding: 0.45rem 0.6rem;
-    text-transform: uppercase;
-  }
-
   .tile-meta {
     margin-top: 1rem;
     display: flex;
@@ -141,20 +128,21 @@ const projects = underConstructionProjects
     gap: 0.45rem;
   }
   .tile-eyebrow {
-    font-family: var(--font-display);
-    font-size: 0.6rem;
-    letter-spacing: var(--tracking-eyebrow);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     color: var(--bronze);
-    text-transform: uppercase;
+    text-transform: none;
   }
   .tile-name {
     margin: 0;
-    font-family: var(--font-display);
-    font-weight: 400;
+    font-family: var(--font-family);
+    font-weight: 500;
     font-size: clamp(1.05rem, 1.6vw, 1.4rem);
-    letter-spacing: var(--tracking-section);
+    letter-spacing: 0.02em;
     color: var(--ink);
-    text-transform: uppercase;
+    text-transform: none;
     transition: color 0.4s var(--ease-arch);
   }
   .tile:hover .tile-name { color: var(--bronze); }
@@ -164,11 +152,12 @@ const projects = underConstructionProjects
     align-items: center;
     gap: 0.625rem;
     margin-top: 0.4rem;
-    font-family: var(--font-display);
-    font-size: 0.5625rem;
-    letter-spacing: var(--tracking-eyebrow);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     color: var(--ink);
-    opacity: 0.55;
+    opacity: 1;
     transition: opacity 0.4s var(--ease-arch), color 0.4s var(--ease-arch), transform 0.5s var(--ease-arch);
   }
   .tile:hover .tile-cta { opacity: 1; color: var(--bronze); transform: translateX(4px); }

@@ -11,11 +11,11 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <header class:list={["topbar", { "is-over-hero": path === "/" }]} data-rail>
-  <a href="/" class="brand" aria-label="ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ — Αρχική">
+  <a href="/" class="brand" aria-label="ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ, Αρχική">
     <img
       class="brand-logo brand-logo--dark"
       src="/brand/logo-dark.png"
-      alt="ΟΜΙΛΟΣ ΟΙΚΟΔΟΜΙΚΩΝ ΕΠΙΧΕΙΡΗΣΕΩΝ — ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ"
+      alt="ΟΜΙΛΟΣ ΟΙΚΟΔΟΜΙΚΩΝ ΕΠΙΧΕΙΡΗΣΕΩΝ, ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ"
       width="1120"
       height="265"
     />
@@ -55,7 +55,6 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
     </div>
     <a class="topbar-cta" href="/contact">
       <span>ΕΠΙΚΟΙΝΩΝΙΑ</span>
-      <span class="arrow">→</span>
     </a>
     <button class="topbar-burger" aria-label="Open menu" data-burger>
       <span></span><span></span><span></span>
@@ -87,7 +86,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
     text-decoration: none;
   }
   .brand-logo {
-    height: 48px;
+    height: 64px;
     width: auto;
     display: block;
     transition: opacity 0.45s var(--ease-arch);
@@ -169,11 +168,6 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
     color: var(--canvas);
     letter-spacing: 0.65rem;
   }
-  .topbar-cta .arrow {
-    color: var(--bronze);
-    transition: transform 0.4s var(--ease-arch);
-  }
-  .topbar-cta:hover .arrow { transform: translateX(3px); }
 
   .topbar-burger {
     display: none;
@@ -236,7 +230,9 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
   .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .brand-logo--dark { opacity: 0; }
   .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .brand-logo--white { opacity: 1; }
   .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-nav a { color: rgba(255,255,255,0.92); }
-  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-nav a.is-active { color: var(--bronze-soft); }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-nav a::after { background: #fff; }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-nav a.is-active { color: #fff; }
+  .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-nav a:hover { color: #fff; }
   .topbar.is-over-hero:not(.is-solid):not(.is-menu-open) .topbar-cta {
     color: #fff;
     border-color: rgba(255,255,255,0.5);
@@ -256,7 +252,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
   }
   @media (max-width: 860px) {
     .topbar { grid-template-columns: 1fr auto; padding: 0.75rem 1.25rem; }
-    .brand-logo { height: 38px; }
+    .brand-logo { height: 48px; }
     /* Single header row: brand left, lang+burger right; nav drops below */
     .brand { grid-row: 1; grid-column: 1; }
     .topbar-end { grid-row: 1; grid-column: 2; justify-self: end; }

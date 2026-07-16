@@ -1,10 +1,4 @@
 ---
-const stats = [
-  { value: "30+", label: "έτη\nεμπειρίας" },
-  { value: "1995", label: "έτος\nίδρυσης" },
-  { value: "Κλειδί\nστο χέρι", label: "παράδοση" },
-];
-
 const steps = [
   {
     n: "01",
@@ -29,7 +23,7 @@ const steps = [
   {
     n: "05",
     t: "Φινιρίσματα",
-    d: "Επιλογή ποιοτικών υλικών — δάπεδα, κουφώματα, χρωματισμοί και είδη υγιεινής — προσαρμοσμένων στις ανάγκες σας.",
+    d: "Επιλογή ποιοτικών υλικών: δάπεδα, κουφώματα, χρωματισμοί και είδη υγιεινής, προσαρμοσμένων στις ανάγκες σας.",
   },
   {
     n: "06",
@@ -63,34 +57,23 @@ const features = [
   <div class="con-wrap">
     <header class="con-head">
       <span class="eyebrow" data-reveal>Η ΥΠΗΡΕΣΙΑ ΜΑΣ <span class="eyebrow-line"></span></span>
-      <p class="eyebrow con-kicker" data-reveal>ΚΑΤΑΣΚΕΥΕΣ</p>
       <h1 class="section-title con-title" data-split-title>
-        <span class="line">ΑΝΕΓΕΡΣΗ ΝΕΩΝ</span>
-        <span class="line">ΟΙΚΟΔΟΜΩΝ</span>
+        <span class="line">ΑΝΕΓΕΡΣΗ ΝΕΩΝ ΟΙΚΟΔΟΜΩΝ</span>
       </h1>
     </header>
 
-    <div class="con-intro__body">
-      <p class="con-lede body-copy" data-reveal>
+    <div class="con-intro__body stack" data-reveal-stagger>
+      <p class="body-copy">
         Από το 1995 εξειδικευόμαστε αποκλειστικά στην ανέγερση νέων οικοδομών στην
-        Αθήνα. Αναλαμβάνουμε κάθε έργο ολοκληρωμένα — από τη μελέτη και την
-        αδειοδότηση έως την παράδοση με το κλειδί στο χέρι — εφαρμόζοντας σύγχρονες
+        Αθήνα. Αναλαμβάνουμε κάθε έργο ολοκληρωμένα, από τη μελέτη και την
+        αδειοδότηση έως την παράδοση με το κλειδί στο χέρι, εφαρμόζοντας σύγχρονες
         μεθόδους δόμησης και τηρώντας τους πιο πρόσφατους κανονισμούς.
       </p>
-      <p class="body-copy" data-reveal>
+      <p class="body-copy">
         Κάθε κτίριο σχεδιάζεται ώστε να προσφέρει φωτεινούς, λειτουργικούς και
         ενεργειακά αποδοτικούς χώρους, με διακριτή αρχιτεκτονική παρουσία και
         διαχρονική ποιότητα κατασκευής.
       </p>
-    </div>
-
-    <div class="con-stats" data-reveal-stagger>
-      {stats.map((s) => (
-        <div class="con-stat">
-          <span class="con-stat__v">{s.value}</span>
-          <span class="con-stat__l">{s.label}</span>
-        </div>
-      ))}
     </div>
   </div>
 </section>
@@ -100,9 +83,8 @@ const features = [
   <div class="con-wrap">
     <header class="con-head">
       <span class="eyebrow" data-reveal>Η ΔΙΑΔΙΚΑΣΙΑ <span class="eyebrow-line"></span></span>
-      <h2 class="section-title" data-split-title>
-        <span class="line">ΑΠΟ ΤΗ ΜΕΛΕΤΗ</span>
-        <span class="line">ΣΤΗΝ ΠΑΡΑΔΟΣΗ</span>
+      <h2 class="section-title con-title" data-split-title>
+        <span class="line">ΑΠΟ ΤΗ ΜΕΛΕΤΗ ΣΤΗΝ ΠΑΡΑΔΟΣΗ</span>
       </h2>
     </header>
 
@@ -125,9 +107,8 @@ const features = [
   <div class="con-wrap">
     <header class="con-head">
       <span class="eyebrow" data-reveal>ΓΙΑΤΙ ΕΜΑΣ <span class="eyebrow-line"></span></span>
-      <h2 class="section-title" data-split-title>
-        <span class="line">ΠΟΙΟΤΗΤΑ &amp;</span>
-        <span class="line">ΤΕΧΝΟΛΟΓΙΑ</span>
+      <h2 class="section-title con-title" data-split-title>
+        <span class="line">ΠΟΙΟΤΗΤΑ &amp; ΤΕΧΝΟΛΟΓΙΑ</span>
       </h2>
     </header>
 
@@ -148,7 +129,7 @@ const features = [
   <div class="con-wrap con-cta__inner">
     <h2 class="con-cta__title" data-reveal>Σχεδιάζετε μια νέα οικοδομή;</h2>
     <p class="con-cta__text" data-reveal>
-      Επικοινωνήστε μαζί μας για το έργο σας — απαντάμε εντός μιας εργάσιμης ημέρας.
+      Επικοινωνήστε μαζί μας για το έργο σας. Απαντάμε εντός μιας εργάσιμης ημέρας.
     </p>
     <div class="con-cta__actions" data-reveal>
       <a class="btn-outline" href="/contact">ΕΠΙΚΟΙΝΩΝΙΑ</a>
@@ -159,48 +140,24 @@ const features = [
 
 <style>
   .con-wrap { max-width: var(--content-max); margin: 0 auto; }
-  .con-head { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
-  .con-kicker { display: block; margin: 0.75rem 0 1.25rem; color: var(--bronze); }
+  .con-head { margin-bottom: clamp(2rem, 5vw, 3.5rem); width: 100%; }
+  .con-title {
+    width: 100%;
+    white-space: nowrap;
+  }
+  .con-title .line {
+    display: inline;
+  }
 
   /* Intro */
   .con-intro__body {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(1.5rem, 4vw, 3.5rem);
-    align-items: start;
+    width: 100%;
+    max-width: none;
   }
-  .con-lede {
-    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-    line-height: 1.7;
-    color: var(--ink);
-  }
-  .con-intro__body .body-copy { line-height: 1.85; }
-
-  .con-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(2rem, 6vw, 5rem);
-    margin-top: clamp(2.5rem, 5vw, 3.75rem);
-    padding-top: clamp(2rem, 4vw, 2.75rem);
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-  }
-  .con-stat { display: flex; flex-direction: column; gap: 0.4rem; }
-  .con-stat__v {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
-    line-height: 1;
-    color: var(--ink);
-    white-space: pre-line;
-  }
-  .con-stat__l {
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
-    color: var(--bronze);
-    white-space: pre-line;
-    line-height: 1.4;
+  .con-intro__body .body-copy {
+    margin: 0;
+    line-height: 1.85;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
   }
 
   /* Process steps */
@@ -240,7 +197,7 @@ const features = [
     font-family: var(--font-body);
     font-size: 0.95rem;
     line-height: 1.75;
-    color: rgba(255, 255, 255, 0.68);
+    color: #fff;
   }
 
   /* Quality features */
@@ -277,7 +234,7 @@ const features = [
   }
 
   /* CTA */
-  .con-cta__inner { max-width: 46rem; text-align: center; margin-inline: auto; }
+  .con-cta__inner { width: 100%; max-width: none; text-align: center; margin-inline: auto; }
   .con-cta__title {
     margin: 0 0 1rem;
     font-family: var(--font-display);
@@ -288,10 +245,12 @@ const features = [
   }
   .con-cta__text {
     margin: 0 auto clamp(1.75rem, 3vw, 2.5rem);
-    max-width: 34rem;
+    width: 100%;
+    max-width: none;
     font-family: var(--font-body);
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.72);
+    color: #fff;
+    white-space: nowrap;
   }
   .con-cta__actions {
     display: inline-flex;
@@ -301,7 +260,6 @@ const features = [
   }
 
   @media (max-width: 860px) {
-    .con-intro__body { grid-template-columns: 1fr; }
     .con-steps { grid-template-columns: 1fr; }
     .con-features { grid-template-columns: 1fr; }
   }

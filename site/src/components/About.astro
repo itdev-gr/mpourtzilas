@@ -18,7 +18,7 @@ const aboutImg =
         <p>
           Καλωσορίσατε στην <strong>MPOURTZILAS O.E.</strong>, όπου το όραμά σας
           γίνεται πραγματικότητα. Εξειδικευόμαστε αποκλειστικά στην
-          <strong>ανέγερση νέων οικοδομών</strong> υψηλής ποιότητας —
+          <strong>ανέγερση νέων οικοδομών</strong> υψηλής ποιότητας,
           από τη μελέτη έως την παράδοση με το κλειδί στο χέρι.
         </p>
         <p>
@@ -35,16 +35,12 @@ const aboutImg =
 
       <dl class="stat-row" data-reveal-stagger>
         <div>
-          <dt>11+</dt>
-          <dd>έτη <br />εμπειρίας</dd>
+          <dt>30</dt>
+          <dd>έτη εμπειρίας</dd>
         </div>
         <div>
           <dt>140</dt>
-          <dd>ολοκληρωμένα <br />έργα</dd>
-        </div>
-        <div>
-          <dt>59</dt>
-          <dd>Marathonodromou,<br />Marousi</dd>
+          <dd>ολοκληρωμένα έργα</dd>
         </div>
       </dl>
     </div>
@@ -52,15 +48,10 @@ const aboutImg =
     <figure class="about-figure" data-reveal>
       <img
         src={aboutImg}
-        alt="Architectural detail — concrete and warm wood"
+        alt="Architectural detail, concrete and warm wood"
         loading="lazy"
         decoding="async"
       />
-      <figcaption>
-        <span>Καρπός μελέτης</span>
-        <span class="line"></span>
-        <span>Marousi · Athens</span>
-      </figcaption>
     </figure>
   </div>
 </section>
@@ -79,35 +70,6 @@ const aboutImg =
   .about-text { position: relative; }
   .about-text .eyebrow { margin-bottom: 1.5rem; }
   .about-text .body-copy { max-width: 32rem; }
-
-  .stat-row {
-    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1rem, 3vw, 2.5rem);
-    border-top: 1px solid rgba(0,0,0,0.08);
-    padding-top: clamp(1.75rem, 3vw, 2.5rem);
-  }
-  .stat-row > div { margin: 0; }
-  .stat-row dt {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    line-height: 1;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-  }
-  .stat-row dd {
-    margin: 0.75rem 0 0 0;
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
-    color: var(--bronze);
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-  }
 
   .about-figure {
     position: relative;
@@ -143,40 +105,8 @@ const aboutImg =
     border-width: 0 1px 1px 0;
   }
 
-  .about-figure figcaption {
-    position: absolute;
-    left: 1.25rem;
-    bottom: 1.25rem;
-    max-width: calc(100% - 2.5rem);
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.35rem 0.75rem;
-    font-family: var(--font-display);
-    font-size: 0.5625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    color: var(--canvas);
-    text-transform: uppercase;
-    background: rgba(0,0,0,0.55);
-    padding: 0.55rem 0.85rem;
-    backdrop-filter: blur(2px);
-  }
-  .about-figure figcaption .line {
-    width: 1.5rem; height: 1px; background: var(--bronze);
-  }
-
   @media (max-width: 900px) {
     .about-grid { grid-template-columns: 1fr; }
     .about-figure { aspect-ratio: 4 / 3; }
-    .stat-row { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .stat-row dt { font-size: 2rem; }
-  }
-
-  /* Phones: three tracked columns can't fit — one stat per row, number + label inline */
-  @media (max-width: 600px) {
-    .stat-row { grid-template-columns: 1fr; gap: 1.1rem; }
-    .stat-row > div { display: flex; align-items: baseline; gap: 1.25rem; }
-    .stat-row dt { font-size: 1.75rem; min-width: 4.25rem; }
-    .stat-row dd { margin: 0; letter-spacing: 0.2rem; overflow-wrap: normal; }
   }
 </style>

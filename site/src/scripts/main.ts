@@ -65,11 +65,10 @@ function animateHero() {
   const eyebrowLine = hero.querySelector<HTMLElement>(".hero-eyebrow .line");
   const lede = hero.querySelector<HTMLElement>(".hero-lede");
   const actions = hero.querySelector<HTMLElement>(".hero-actions");
-  const meta = hero.querySelector<HTMLElement>(".hero-meta");
   const brackets = hero.querySelectorAll<HTMLElement>(".brackets .b");
 
   // Pre-state
-  gsap.set([eyebrow, lede, actions, meta], { autoAlpha: 0, y: 18 });
+  gsap.set([eyebrow, lede, actions], { autoAlpha: 0, y: 18 });
   gsap.set(eyebrowLine, { scaleX: 0, transformOrigin: "left center" });
   gsap.set(titleChars, { yPercent: 110, autoAlpha: 0 });
   brackets.forEach((b) => {
@@ -102,8 +101,7 @@ function animateHero() {
       0.75,
     )
     .to(lede, { autoAlpha: 1, y: 0, duration: 0.9 }, "-=0.55")
-    .to(actions, { autoAlpha: 1, y: 0, duration: 0.8 }, "-=0.7")
-    .to(meta, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.55");
+    .to(actions, { autoAlpha: 1, y: 0, duration: 0.8 }, "-=0.7");
 
   // Subtle Ken-Burns drift (pause; respects reduced motion)
   if (heroImg && !reduceMotion) {

@@ -12,38 +12,32 @@ import Brackets from "./Brackets.astro";
       loop
       playsinline
       preload="auto"
-      aria-label="Μπουρτζίλας Οικοδομές — παρουσίαση έργων"
+      aria-label="Μπουρτζίλας Οικοδομές, παρουσίαση έργων"
     ></video>
     <div class="hero-veil"></div>
   </div>
 
   <!-- insetTop clears the fixed topbar (~5rem tall) -->
-  <Brackets inset="2.5rem" insetTop="6.5rem" size="6rem" stroke="1px" />
-
-  <span class="hero-eyebrow" data-reveal>
-    <span class="line"></span>
-    <span>Δημιουργούμε χώρους · Από το 1995</span>
-  </span>
+  <Brackets inset="2.5rem" insetTop="6.5rem" size="6rem" stroke="1px" color="var(--canvas)" />
 
   <div class="hero-content">
+    <span class="hero-eyebrow" data-reveal>
+      <span class="line"></span>
+      <span>Δημιουργούμε χώρους Από το 1995</span>
+    </span>
+
     <h1 class="hero-title" data-split-title>
-      <span class="line">ΚΑΙΝΟΤΟΜΗ</span>
-      <span class="line">ΚΑΤΑΣΚΕΥΗ</span>
+      <span class="line">ΚΑΙΝΟΤΟΜΗ ΚΑΤΑΣΚΕΥΗ</span>
     </h1>
 
     <p class="hero-lede" data-reveal>
-      MPOURTZILAS — Δημιουργούμε χώρους με ακρίβεια, καινοτομία και αισθητική.<br />
+      MPOURTZILAS. Δημιουργούμε χώρους με ακρίβεια, καινοτομία και αισθητική.
       Εξειδικευόμαστε στο να μετατρέπουμε το όραμά σας σε πραγματικότητα.
     </p>
 
     <div class="hero-actions" data-reveal>
       <a class="btn-outline" href="/projects">ΤΑ ΕΡΓΑ ΜΑΣ</a>
     </div>
-  </div>
-
-  <!-- Bottom-right location -->
-  <div class="hero-meta">
-    <span>Μητσάκη 32, Κυπριάδου</span>
   </div>
 </section>
 
@@ -87,47 +81,46 @@ import Brackets from "./Brackets.astro";
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 48rem;
+    width: 100%;
+    max-width: none;
   }
 
   .hero-eyebrow {
-    position: absolute;
-    /* sits below the top bracket line, which clears the fixed topbar */
-    top: clamp(8.25rem, 9.5vw, 9rem);
-    left: clamp(2rem, 6vw, 6rem);
-    z-index: 2;
     display: inline-flex;
     align-items: center;
     gap: 0.875rem;
+    margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
     font-family: var(--font-display);
     font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: var(--tracking-eyebrow);
-    color: var(--bronze);
+    color: var(--canvas);
     text-transform: uppercase;
   }
   .hero-eyebrow .line {
     width: 3rem;
     height: 1px;
-    background: var(--bronze);
+    background: var(--canvas);
     transform-origin: left center;
   }
 
   .hero-title {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2rem, 5vw, 4.25rem);
+    font-size: clamp(1.65rem, 3.8vw, 3.25rem);
     line-height: 1.05;
-    letter-spacing: var(--tracking-hero);
+    letter-spacing: clamp(0.2rem, 0.8vw, 0.5rem);
     text-transform: uppercase;
     color: var(--canvas);
     margin: 0 0 clamp(1.75rem, 3vw, 2.5rem) 0;
+    width: 100%;
+    white-space: nowrap;
   }
   .hero-title .line {
-    display: block;
+    display: inline;
     overflow: hidden;
   }
   .hero-title em {
-    font-style: italic;
     font-weight: 300;
     letter-spacing: 0.5rem;
     color: var(--bronze);
@@ -170,42 +163,55 @@ import Brackets from "./Brackets.astro";
     100% { transform: translateY(0);     opacity: 1;  }
   }
 
-  .hero-meta {
-    position: absolute;
-    z-index: 2;
-    right: clamp(2.5rem, 6vw, 6rem);
-    bottom: clamp(2rem, 4vw, 3rem);
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    font-family: var(--font-display);
-    font-size: 0.675rem;
-    letter-spacing: var(--tracking-eyebrow);
-    color: rgba(255,255,255,0.62);
-    text-transform: uppercase;
-  }
-  .hero-meta .sep {
-    width: 1.75rem;
-    height: 1px;
-    background: var(--bronze);
-    opacity: 0.7;
+  @media (max-width: 900px) {
+    .hero {
+      height: auto;
+      min-height: 72svh;
+      padding: 5.5rem clamp(1.25rem, 5vw, 2rem) 2.5rem;
+    }
+    .hero-title {
+      font-size: clamp(1.4rem, 5.5vw, 2.25rem);
+      letter-spacing: clamp(0.1rem, 0.8vw, 0.35rem);
+      margin-bottom: 1.25rem;
+    }
+    .hero-lede {
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
   }
 
-  @media (max-width: 900px) {
-    .hero { min-height: auto; padding-top: 5rem; padding-bottom: 5rem; }
-    .hero-meta { display: none; }
-    /* the fixed 15px tracking pushes ΚΑΙΝΟΤΟΜΗ past the viewport and wraps it mid-word */
-    .hero-title { letter-spacing: clamp(0.3rem, 1.8vw, 0.9375rem); }
+  @media (max-width: 600px) {
+    .hero {
+      min-height: 78svh;
+      padding-top: 5rem;
+      padding-bottom: 2rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.625rem;
+      letter-spacing: 0.12rem;
+      line-height: 1.4;
+      flex-wrap: nowrap;
+      margin-top: 0;
+      margin-bottom: 0.85rem;
+    }
+    .hero-eyebrow .line {
+      width: 2rem;
+      flex-shrink: 0;
+    }
+    .hero-title {
+      font-size: clamp(1.25rem, 5vw, 1.75rem);
+      letter-spacing: 0.08rem;
+    }
+    .hero-lede {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
   }
 
   @media (max-width: 700px) {
-    /* the 9px tracking wraps the eyebrow to 3 lines across the corner brackets */
     .hero-eyebrow {
-      right: clamp(2rem, 6vw, 6rem);
-      flex-wrap: wrap;
-      row-gap: 0.4rem;
-      letter-spacing: 0.2rem;
-      line-height: 1.6;
+      letter-spacing: 0.15rem;
     }
   }
 </style>

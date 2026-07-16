@@ -7,7 +7,6 @@ interface Props {
 }
 
 const { project, index } = Astro.props;
-const num = String(index + 1).padStart(2, "0");
 const hasImages = (project.images?.length ?? 0) > 0;
 ---
 
@@ -16,7 +15,15 @@ const hasImages = (project.images?.length ?? 0) > 0;
     <div class:list={["project-card__media", "project-card__media--gallery", { "project-card__media--single": project.images!.length === 1 }]}>
       {project.images!.map((img) => (
         <figure class="project-card__shot">
-          <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+          <button
+            type="button"
+            class="project-card__shot-btn"
+            data-lb-trigger
+            aria-label={`Μεγέθυνση: ${img.alt}`}
+          >
+            <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+            <span class="project-card__shot-hint" aria-hidden="true"></span>
+          </button>
           <span class="project-card__corner project-card__corner--tl" aria-hidden="true"></span>
           <span class="project-card__corner project-card__corner--br" aria-hidden="true"></span>
         </figure>
@@ -24,7 +31,6 @@ const hasImages = (project.images?.length ?? 0) > 0;
     </div>
   ) : (
     <div class="project-card__media" aria-hidden="true">
-      <span class="project-card__num">{num}</span>
       <span class="project-card__corner project-card__corner--tl"></span>
       <span class="project-card__corner project-card__corner--br"></span>
     </div>
@@ -34,7 +40,7 @@ const hasImages = (project.images?.length ?? 0) > 0;
     <header class="project-card__head">
       <h3 class="project-card__title">{project.title}</h3>
       <p class="project-card__meta">
-        {project.period && project.period !== "—" && (
+        {project.period && (
           <>
             <span>{project.period}</span>
             <span class="dot">·</span>
@@ -73,14 +79,6 @@ const hasImages = (project.images?.length ?? 0) > 0;
     color: var(--bronze);
     overflow: hidden;
   }
-  .project-card__num {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(3rem, 7vw, 5rem);
-    letter-spacing: 0.05em;
-    color: rgba(177,151,119,0.55);
-    line-height: 1;
-  }
   .project-card__corner {
     position: absolute;
     width: 2.25rem; height: 2.25rem;
@@ -108,7 +106,18 @@ const hasImages = (project.images?.length ?? 0) > 0;
     overflow: hidden;
     background: var(--whisper, #fafafa);
   }
-  .project-card__shot img {
+  .project-card__shot-btn {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card__shot-btn img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -116,7 +125,31 @@ const hasImages = (project.images?.length ?? 0) > 0;
     transform: scale(1.02);
     transition: transform 1.4s var(--ease-arch);
   }
-  .project-card__shot:hover img { transform: scale(1.0); }
+  .project-card__shot-hint {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(14, 14, 14, 0.28);
+    opacity: 0;
+    transition: opacity 0.45s var(--ease-arch);
+    pointer-events: none;
+  }
+  .project-card__shot-hint::before {
+    content: "";
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='6'/%3E%3Cpath d='M20 20l-4.2-4.2M11 8.5v5M8.5 11h5'/%3E%3C/svg%3E")
+      center / 1.35rem no-repeat;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+  .project-card__shot-btn:hover img,
+  .project-card__shot-btn:focus-visible img { transform: scale(1.0); }
+  .project-card__shot-btn:hover .project-card__shot-hint,
+  .project-card__shot-btn:focus-visible .project-card__shot-hint { opacity: 1; }
 
   .project-card__body { min-width: 0; }
   .project-card__title {
@@ -129,10 +162,11 @@ const hasImages = (project.images?.length ?? 0) > 0;
   }
   .project-card__meta {
     margin: 0.5rem 0 0;
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: none;
     color: var(--bronze);
     display: inline-flex;
     align-items: center;
@@ -143,7 +177,7 @@ const hasImages = (project.images?.length ?? 0) > 0;
     margin: 1.1rem 0 0;
     font-family: var(--font-body);
     line-height: 1.7;
-    color: rgba(39,39,39,0.82);
+    color: #000;
     max-width: 38rem;
   }
 
@@ -152,7 +186,7 @@ const hasImages = (project.images?.length ?? 0) > 0;
     .project-card__media { aspect-ratio: 16 / 10; }
     .project-card__media--gallery { aspect-ratio: auto; grid-template-columns: 1fr; }
     .project-card__shot { aspect-ratio: 16 / 10; }
-    /* the 9px tracking makes the meta spans wrap into ragged columns */
-    .project-card__meta { flex-wrap: wrap; letter-spacing: 0.15rem; row-gap: 0.3rem; }
+    /* readable meta on narrow screens */
+    .project-card__meta { flex-wrap: wrap; row-gap: 0.3rem; }
   }
 </style>

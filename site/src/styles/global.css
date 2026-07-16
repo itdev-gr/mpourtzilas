@@ -10,15 +10,15 @@
   --bronze: #c51422;        /* logo red — primary accent */
   --bronze-soft: #e24c56;   /* lighter red — hover / active states */
   --ink: #272727;
-  --slate: #777777;
+  --slate: #000000;
   --whisper: #fafafa;
   --canvas: #ffffff;
   --black: #000000;
 
-  /* Typography — Helvetica (system stack; Arial is the Greek-capable,
-     metric-compatible fallback for Windows/Android) */
-  --font-display: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
-  --font-body: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  /* Typography — Helvetica everywhere (Arial fallback for Greek on Windows) */
+  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-family);
+  --font-body: var(--font-family);
 
   /* Tracking scale */
   --tracking-eyebrow: 0.5625rem;   /* 9px  */
@@ -52,16 +52,30 @@
 *::before,
 *::after { box-sizing: border-box; }
 
+html {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   background: var(--canvas);
   color: var(--slate);
-  font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+}
+
+/* Force Helvetica on every element — no browser defaults, no exceptions */
+*,
+*::before,
+*::after,
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
 }
 
 img { max-width: 100%; display: block; }
@@ -129,6 +143,66 @@ button {
 .body-copy { color: var(--slate); }
 .body-copy strong { color: var(--ink); font-weight: 600; }
 
+/* ---- Stat row ---- */
+.stat-row {
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  width: 100%;
+}
+.stat-row > div { margin: 0; }
+.stat-row dt {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.stat-row dd {
+  margin: 0.75rem 0 0 0;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--bronze);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+@media (max-width: 900px) {
+  .stat-row dt { font-size: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .stat-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1.25rem;
+    padding-top: 1.25rem;
+  }
+  .stat-row > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+  }
+  .stat-row dt {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+    min-width: 0;
+  }
+  .stat-row dd {
+    margin: 0;
+    font-size: 0.9375rem;
+    white-space: normal;
+    line-height: 1.35;
+  }
+}
+
 /* ---- Outline button ---- */
 .btn-outline {
   display: inline-block;
@@ -181,7 +255,9 @@ main.stage {
   color: var(--canvas);
 }
 .section--inverse .section-title { color: var(--canvas); }
-.section--inverse .body-copy { color: rgba(255,255,255,0.7); }
+.section--inverse .eyebrow { color: var(--canvas); }
+.section--inverse .eyebrow-line { background: var(--canvas); }
+.section--inverse .body-copy { color: #fff; }
 
 .section--whisper {
   background: var(--whisper);

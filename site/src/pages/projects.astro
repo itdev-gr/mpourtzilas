@@ -6,7 +6,7 @@ import UnderConstructionProjects from "../components/about/UnderConstructionProj
 import Lightbox from "../components/Lightbox.astro";
 ---
 
-<Layout title="ΤΑ ΕΡΓΑ ΜΑΣ — MPOURTZILAS">
+<Layout title="ΤΑ ΕΡΓΑ ΜΑΣ | MPOURTZILAS">
   <div class="shell">
     <Sidebar />
     <main class="stage">
@@ -19,5 +19,13 @@ import Lightbox from "../components/Lightbox.astro";
 
   <script>
     import "../scripts/main.ts";
+    import { initLightbox } from "../scripts/lightbox.ts";
+
+    const bootLightbox = () => initLightbox();
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", bootLightbox);
+    } else {
+      bootLightbox();
+    }
   </script>
 </Layout>

@@ -12,8 +12,7 @@
         <span class="line">ΜΑΖΙ ΜΑΣ</span>
       </h2>
       <p class="body-copy" data-reveal>
-        Πείτε μας για το έργο σας. Απαντάμε εντός μιας εργάσιμης ημέρας —
-        στα Ελληνικά ή στα Αγγλικά.
+        Πείτε μας για το έργο σας. Απαντάμε εντός μιας εργάσιμης ημέρας.
       </p>
 
       <ul class="contact-list" data-reveal-stagger>
@@ -31,7 +30,7 @@
         </li>
         <li>
           <span class="ck">Ώρες</span>
-          <span class="cv">Δευτέρα – Παρασκευή · 09:00 — 18:00</span>
+          <span class="cv">Δευτέρα – Παρασκευή · 09:00 έως 18:00</span>
         </li>
       </ul>
     </div>
@@ -42,19 +41,19 @@
       <p class="contact-form__lede">Συμπληρώστε τη φόρμα και θα επικοινωνήσουμε εντός μιας εργάσιμης ημέρας.</p>
       <div class="field">
         <label for="name">Ονοματεπώνυμο</label>
-        <input id="name" name="name" type="text" required autocomplete="name" placeholder="Ονοματεπώνυμο" />
+        <input id="name" name="name" type="text" required autocomplete="name" />
       </div>
       <div class="field">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" />
+        <input id="email" name="email" type="email" required autocomplete="email" />
       </div>
       <div class="field">
         <label for="location">Τοποθεσία</label>
-        <input id="location" name="location" type="text" autocomplete="address-level2" placeholder="π.χ. Κυπριάδου, Αθήνα" />
+        <input id="location" name="location" type="text" autocomplete="address-level2" />
       </div>
       <div class="field field--full">
         <label for="msg">Πείτε μας για τον χώρο σας</label>
-        <textarea id="msg" name="msg" rows="4" required placeholder="Σύντομη περιγραφή — τοποθεσία, εμβαδόν, χρονοδιάγραμμα…"></textarea>
+        <textarea id="msg" name="msg" rows="4" required></textarea>
       </div>
       <button class="contact-form__submit" type="submit">
         <span>ΑΠΟΣΤΟΛΗ ΑΙΤΗΜΑΤΟΣ</span>
@@ -88,7 +87,7 @@
   }
   .contact-list li {
     display: grid;
-    grid-template-columns: 7rem 1fr;
+    grid-template-columns: 9rem 1fr;
     gap: 1.5rem;
     padding: 1.1rem 0;
     border-top: 1px solid rgba(0,0,0,0.08);
@@ -96,11 +95,12 @@
   }
   .contact-list li:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
   .ck {
-    font-family: var(--font-display);
-    font-size: 0.5625rem;
-    letter-spacing: var(--tracking-eyebrow);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     color: var(--bronze);
-    text-transform: uppercase;
+    text-transform: none;
   }
   .cv {
     font-family: var(--font-body);
@@ -133,18 +133,18 @@
     font-family: var(--font-body);
     font-size: 0.95rem;
     line-height: 1.6;
-    color: rgba(39,39,39,0.78);
+    color: #000;
   }
   .field { display: flex; flex-direction: column; }
   .field--full { grid-column: 1 / -1; }
   .field label {
-    font-family: var(--font-display);
-    font-size: 0.625rem;
-    letter-spacing: var(--tracking-eyebrow);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     color: var(--ink);
-    text-transform: uppercase;
+    text-transform: none;
     margin-bottom: 0.55rem;
-    font-weight: 500;
   }
   .field input,
   .field select,

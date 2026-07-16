@@ -12,17 +12,17 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
 <footer class="site-footer">
   <div class="site-footer__inner">
     <div class="site-footer__brand">
-      <a href="/" class="site-footer__logo" aria-label="ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ — Αρχική">
+      <a href="/" class="site-footer__logo" aria-label="ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ, Αρχική">
         <img
           src="/brand/logo-white.png"
-          alt="ΟΜΙΛΟΣ ΟΙΚΟΔΟΜΙΚΩΝ ΕΠΙΧΕΙΡΗΣΕΩΝ — ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ"
+          alt="ΟΜΙΛΟΣ ΟΙΚΟΔΟΜΙΚΩΝ ΕΠΙΧΕΙΡΗΣΕΩΝ, ΜΠΟΥΡΤΖΙΛΑΣ ΠΑΝΑΓΙΩΤΗΣ"
           width="1120"
           height="265"
           loading="lazy"
         />
       </a>
       <p class="site-footer__desc">
-        Ανέγερση νέων οικοδομών υψηλής ποιότητας στην Αθήνα από το 1995 — με
+        Ανέγερση νέων οικοδομών υψηλής ποιότητας στην Αθήνα από το 1995, με
         έμφαση στη σύγχρονη δόμηση, τις νέες τεχνολογίες και την ανθεκτικότητα.
       </p>
     </div>
@@ -63,7 +63,7 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
         </li>
         <li>
           <span class="k">Ώρες</span>
-          <span>Δευτέρα – Παρασκευή · 09:00 — 18:00</span>
+          <span>Δευτέρα – Παρασκευή · 09:00 έως 18:00</span>
         </li>
       </ul>
     </div>
@@ -73,7 +73,7 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
     <span>© 2026 · MPOURTZILAS O.E.</span>
     <span class="site-footer__sep" aria-hidden="true"></span>
     <span class="site-footer__credit">
-      Powered by <a href="https://www.itdev.gr" target="_blank" rel="noopener">itdev</a>
+      Developed by <a href="https://www.itdev.gr" target="_blank" rel="noopener">IT DEV</a>
     </span>
   </div>
 </footer>
@@ -81,16 +81,16 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
 <style>
   .site-footer {
     background: #1e1e1e;
-    color: rgba(255, 255, 255, 0.7);
-    padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 5rem) clamp(1.75rem, 3vw, 2.5rem);
+    color: #fff;
+    padding: clamp(3.5rem, 7vw, 5.5rem) clamp(2rem, 6vw, 6rem) clamp(1.75rem, 3vw, 2.5rem);
   }
 
   .site-footer__inner {
-    max-width: var(--content-max);
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     display: grid;
     grid-template-columns: 1.7fr 1fr 1fr 1.5fr;
-    gap: clamp(2rem, 5vw, 4rem);
+    gap: clamp(2.5rem, 5vw, 5rem);
     align-items: start;
   }
 
@@ -98,35 +98,36 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
   .site-footer__logo { display: inline-block; }
   .site-footer__logo img {
     display: block;
-    width: min(320px, 100%);
+    width: min(380px, 100%);
     height: auto;
   }
   .site-footer__desc {
-    margin: 1.35rem 0 0;
-    max-width: 30rem;
+    margin: 1.5rem 0 0;
+    max-width: 36rem;
     font-family: var(--font-body);
-    font-size: 0.92rem;
-    line-height: 1.85;
-    color: rgba(255, 255, 255, 0.58);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #fff;
   }
 
   /* Columns */
   .site-footer__h {
-    margin: 0 0 1.35rem;
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 0.625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
-    color: var(--bronze);
+    margin: 0 0 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: #fff;
   }
   .site-footer__col ul { list-style: none; margin: 0; padding: 0; }
-  .site-footer__col li { margin-bottom: 0.75rem; }
+  .site-footer__col li { margin-bottom: 0.9rem; }
   .site-footer__col a,
   .site-footer__col li > span {
     font-family: var(--font-body);
-    font-size: 0.92rem;
-    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #fff;
     transition: color 0.35s var(--ease-arch);
   }
   .site-footer__col a:hover { color: var(--bronze-soft); }
@@ -134,33 +135,35 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
   .site-footer__col--contact li {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
-    margin-bottom: 1.05rem;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
   }
   .site-footer__col--contact .k {
-    font-family: var(--font-display);
-    font-size: 0.5625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.38);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: #fff;
   }
 
   /* Bottom bar */
   .site-footer__bar {
-    max-width: var(--content-max);
-    margin: clamp(2.75rem, 5vw, 4rem) auto 0;
-    padding-top: 1.6rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    width: 100%;
+    margin: clamp(2.75rem, 5vw, 4rem) 0 0;
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+    border-top: 1px solid #fff;
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    font-family: var(--font-display);
-    font-size: 0.5625rem;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: #fff;
   }
-  .site-footer__sep { flex: 1; height: 1px; background: rgba(255, 255, 255, 0.12); }
+  .site-footer__sep { flex: 1; height: 1px; background: #fff; }
   .site-footer__credit a { color: var(--bronze-soft); }
   .site-footer__credit a:hover { color: #fff; }
 
@@ -170,7 +173,12 @@ const services = ["Ανέγερση νέων οικοδομών", "Σύγχρο�
   }
   @media (max-width: 560px) {
     .site-footer__inner { grid-template-columns: 1fr; }
-    .site-footer__bar { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+    .site-footer__bar {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.7rem;
+    }
     .site-footer__sep { display: none; }
   }
 </style>

@@ -9,8 +9,7 @@ import ProjectCard from "./ProjectCard.astro";
       <span class="eyebrow" data-reveal>
         {underConstructionHeading.eyebrow} <span class="eyebrow-line"></span>
       </span>
-      <p class="eyebrow under-construction__kicker" data-reveal>{underConstructionHeading.kicker}</p>
-      <h2 class="section-title" data-split-title>
+      <h2 class="section-title under-construction__title" data-split-title>
         {underConstructionHeading.title.map((line) => <span class="line">{line}</span>)}
       </h2>
     </header>
@@ -28,6 +27,13 @@ import ProjectCard from "./ProjectCard.astro";
   }
   .under-construction__head {
     margin-bottom: clamp(2rem, 5vw, 3.5rem);
+    width: 100%;
   }
-  .under-construction__kicker { display: block; margin: 0.75rem 0 1.25rem; }
+  .under-construction__title {
+    width: 100%;
+    white-space: nowrap;
+  }
+  .under-construction__title .line {
+    display: inline;
+  }
 </style>
